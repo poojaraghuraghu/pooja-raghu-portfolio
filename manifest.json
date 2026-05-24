@@ -1,0 +1,17 @@
+{
+  "name": "Pooja Raghu",
+  "short_name": "Pooja Raghu",
+  "description": "Pooja Raghu — international athlete, creator, and architect. WUCC 2026.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
