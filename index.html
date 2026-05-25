@@ -3582,22 +3582,18 @@
     ];
     const items = statDefs.map(d => ({ el: document.querySelector(d.sel), ...d, done: false })).filter(d => d.el);
     items.forEach(d => { d.el.textContent = '0' + d.suffix; });
-    function check() {
-      let allDone = true;
-      items.forEach(d => {
-        if (d.done) return;
-        allDone = false;
-        const rect = d.el.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
-          d.done = true;
-          countUp(d.el, d.end, d.suffix, 1300);
+    const io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        const item = items.find(function(d) { return d.el === entry.target; });
+        if (item && !item.done) {
+          item.done = true;
+          io.unobserve(entry.target);
+          countUp(item.el, item.end, item.suffix, 1300);
         }
       });
-      if (allDone) window.removeEventListener('scroll', check);
-    }
-    window.addEventListener('scroll', check, { passive: true });
-    // Also check once after a short delay in case already in view
-    setTimeout(check, 400);
+    }, { threshold: 0.2 });
+    items.forEach(function(d) { io.observe(d.el); });
   })();
 
   /* ── PHOTO BREAK LOAD TRIGGER ────────────────────────────── */
