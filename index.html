@@ -692,8 +692,8 @@
     /* ── ABOUT ─────────────────────────────────────────────── */
     #about { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.07); }
     .about-layout {
-      display: grid; grid-template-columns: clamp(220px,28vw,360px) 1fr;
-      gap: clamp(40px,6vw,96px); margin-top: clamp(40px,5vw,64px); align-items: start;
+      display: grid; grid-template-columns: clamp(240px,30vw,400px) 1fr;
+      gap: clamp(48px,7vw,96px); margin-top: clamp(40px,5vw,64px); align-items: start;
     }
     .about-tag-list { margin-top: 0; }
     .about-tag {
@@ -2529,9 +2529,9 @@
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center 20%;
       display: block;
-      filter: saturate(0.75) brightness(0.88);
+      filter: saturate(0.70) brightness(0.82);
       transition: filter 0.65s var(--ease-o), transform 0.65s var(--ease-o);
     }
     .about-portrait-wrap:hover .about-portrait-img {
@@ -2877,18 +2877,18 @@
   <h2 class="s-title split-lines reveal d1">Where Sport<br/>Meets Story.</h2>
 
   <div class="about-layout">
-    <div>
-      <div class="about-portrait-wrap reveal d1">
-        <img src="img/poster_solo.png" alt="Pooja Raghu — WUCC Australia" class="about-portrait-img" loading="lazy" />
-      </div>
-      <p class="p-body reveal d2">
-        I have been competing internationally for ten years, across Ultimate, surfing, snowboarding, and rugby.
-        I'm also an architect and designer by training, so every campaign I'm part of is built with real intention.
-        Now taking an Indian club to the <a href="https://wucc.sport/" target="_blank" rel="noopener" style="color:inherit;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .2s,color .2s;" onmouseover="this.style.color='var(--ink)';this.style.borderColor='var(--ink)'" onmouseout="this.style.color='';this.style.borderColor='var(--border)'"><strong>World Ultimate Club Championships (WUCC) 2026</strong></a> in Limerick — the biggest stage of my career so far.
-      </p>
+    <!-- Left: portrait only -->
+    <div class="about-portrait-wrap reveal d1">
+      <img src="img/image91.jpeg" alt="Pooja Raghu — editorial portrait" class="about-portrait-img" loading="lazy" />
     </div>
 
+    <!-- Right: bio paragraph + credentials -->
     <div class="about-tag-list reveal d1">
+      <p class="p-body about-bio reveal d2" style="color:rgba(255,255,255,0.52); margin-bottom: clamp(28px,3.5vw,44px); padding-bottom: clamp(24px,3vw,36px); border-bottom: 1px solid rgba(255,255,255,0.07);">
+        I have been competing internationally for ten years, across Ultimate, surfing, snowboarding, and rugby.
+        I'm also an architect and designer by training, so every campaign I'm part of is built with real intention.
+        Now taking an Indian club to the <a href="https://wucc.sport/" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.72);border-bottom:1px solid rgba(255,255,255,0.22);padding-bottom:1px;transition:border-color .2s,color .2s;" onmouseover="this.style.color='white';this.style.borderColor='white'" onmouseout="this.style.color='rgba(255,255,255,0.72)';this.style.borderColor='rgba(255,255,255,0.22)'"><strong style="font-weight:400;">World Ultimate Club Championships (WUCC) 2026</strong></a> in Limerick — the biggest stage of my career so far.
+      </p>
       <div class="about-tag" data-hover-img="img/image98.jpeg">
         <span class="about-tag-key">Disciplines</span>
         <span class="about-tag-val">Ultimate Frisbee · Surfing · Snowboarding · Skating · National Rugby · Trekking · Modelling</span>
@@ -2897,11 +2897,11 @@
         <span class="about-tag-key">Championships</span>
         <span class="about-tag-val">8+ International · Indonesia · Philippines · Malaysia · Australia · Japan · Dubai · Ireland 2026</span>
       </div>
-      <div class="about-tag" data-hover-img="img/image91.jpeg">
+      <div class="about-tag" data-hover-img="img/image69.jpeg">
         <span class="about-tag-key">Profession</span>
         <span class="about-tag-val">Architect · UX/UI Designer · Marketing Professional</span>
       </div>
-      <div class="about-tag" data-hover-img="img/image69.jpeg">
+      <div class="about-tag" data-hover-img="img/image91.jpeg">
         <span class="about-tag-key">Campaigns</span>
         <span class="about-tag-val">WhatsApp (Meta) · Samsung · CSK × Etihad · Deepika Padukone · Neeraj Chopra</span>
       </div>
@@ -3564,36 +3564,43 @@
   /* ── JOURNEY STAT COUNT-UP ───────────────────────────────── */
   (function () {
     function countUp(el, end, suffix, dur) {
-      let start = null;
+      var start = null;
       function step(ts) {
         if (!start) start = ts;
-        const p = Math.min((ts - start) / dur, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
+        var p = Math.min((ts - start) / dur, 1);
+        var ease = 1 - Math.pow(1 - p, 3);
         el.textContent = Math.floor(ease * end) + suffix;
         if (p < 1) requestAnimationFrame(step); else el.textContent = end + suffix;
       }
       requestAnimationFrame(step);
     }
-    const statDefs = [
-      { sel: '.journey-stat:nth-child(1) .jstat-value', end: 10, suffix: '+' },
-      { sel: '.journey-stat:nth-child(2) .jstat-value', end: 8,  suffix: '+' },
-      { sel: '.journey-stat:nth-child(3) .jstat-value', end: 4,  suffix: ''  },
-      { sel: '.journey-stat:nth-child(4) .jstat-value', end: 1,  suffix: ''  }
+    var statDefs = [
+      { pSel: '.journey-stats .journey-stat:nth-child(1)', end: 10, suffix: '+' },
+      { pSel: '.journey-stats .journey-stat:nth-child(2)', end: 8,  suffix: '+' },
+      { pSel: '.journey-stats .journey-stat:nth-child(3)', end: 4,  suffix: ''  },
+      { pSel: '.journey-stats .journey-stat:nth-child(4)', end: 1,  suffix: ''  }
     ];
-    const items = statDefs.map(d => ({ el: document.querySelector(d.sel), ...d, done: false })).filter(d => d.el);
-    items.forEach(d => { d.el.textContent = '0' + d.suffix; });
-    const io = new IntersectionObserver(function(entries) {
+    var items = statDefs.map(function(d) {
+      var parent = document.querySelector(d.pSel);
+      var el = parent ? parent.querySelector('.jstat-value') : null;
+      return { parent: parent, el: el, end: d.end, suffix: d.suffix, done: false };
+    }).filter(function(d) { return d.parent && d.el; });
+    items.forEach(function(d) { d.el.textContent = '0' + d.suffix; });
+    var io = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (!entry.isIntersecting) return;
-        const item = items.find(function(d) { return d.el === entry.target; });
+        var item = null;
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].parent === entry.target) { item = items[i]; break; }
+        }
         if (item && !item.done) {
           item.done = true;
           io.unobserve(entry.target);
           countUp(item.el, item.end, item.suffix, 1300);
         }
       });
-    }, { threshold: 0.2 });
-    items.forEach(function(d) { io.observe(d.el); });
+    }, { threshold: 0.3, rootMargin: '0px 0px -5% 0px' });
+    items.forEach(function(d) { io.observe(d.parent); });
   })();
 
   /* ── PHOTO BREAK LOAD TRIGGER ────────────────────────────── */
