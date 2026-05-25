@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 28">
+  <!-- Speech bubble icon -->
+  <circle cx="11" cy="11" r="8.5" fill="white"/>
+  <path d="M4,21 L7.5,15.5 L5,22.5 Z" fill="white"/>
+  <text x="26" y="19.5" font-family="Helvetica Neue,Arial,sans-serif" font-size="14" font-weight="600" fill="white" letter-spacing="-0.2">WhatsApp</text>
+</svg>

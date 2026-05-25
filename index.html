@@ -24,6 +24,7 @@
   <meta name="twitter:image"       content="https://poojaraghu.com/img/image39.jpeg" />
 
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon.svg" />
   <link rel="manifest" href="/manifest.json" />
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="canonical" href="https://poojaraghu.com/" />
@@ -49,7 +50,7 @@
         "nationality": { "@type": "Country", "name": "India" },
         "jobTitle": ["Athlete", "Architect", "Content Creator"],
         "knowsAbout": ["Ultimate Frisbee", "Multi-sport Athletics", "Architecture", "Content Creation", "Brand Partnerships"],
-        "email": "ar.pooja.raghu@gmail.com",
+        "email": "hello@poojaraghu.com",
         "sameAs": [
           "https://www.instagram.com/pooja_raghu/",
           "https://www.linkedin.com/in/poojaraghu/"
@@ -553,21 +554,81 @@
     .logo-item:hover .logo-img { opacity: 0.65; }
     @media (max-width: 480px) { .logo-img { height: 18px; max-width: 90px; } }
 
-    /* ── PRESS FEATURE ─────────────────────────────────────── */
+    /* ── PRESS SECTION ──────────────────────────────────────── */
     #press { border-top: 1px solid rgba(255,255,255,0.06); }
+
+    /* "As seen in" logo strip */
+    .press-seen-in {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px,2.5vw,36px);
+      margin-top: clamp(28px,3.5vw,44px);
+      margin-bottom: clamp(36px,4.5vw,60px);
+      flex-wrap: wrap;
+    }
+    .press-seen-label {
+      font-family: var(--f-mono);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .press-seen-logos {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px,3.5vw,52px);
+      flex-wrap: wrap;
+    }
+    .press-seen-logo {
+      height: clamp(14px,1.6vw,20px);
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.28;
+      transition: opacity 0.3s;
+    }
+    .press-seen-logo:hover { opacity: 0.55; }
+
+    /* Feature card — two-column editorial layout */
     .press-feature-card {
-      display: block; max-width: 680px; margin-top: clamp(20px,2.5vw,32px);
+      display: grid;
+      grid-template-columns: 42% 1fr;
+      max-width: 860px;
       text-decoration: none;
       border: 1px solid rgba(255,255,255,0.07);
-      padding: clamp(20px,2.5vw,32px);
+      overflow: hidden;
       background: rgba(255,255,255,0.012);
-      transition: background 0.25s, border-color 0.25s;
+      transition: background 0.3s, border-color 0.3s;
     }
     .press-feature-card:hover {
       background: rgba(255,255,255,0.022);
-      border-color: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.16);
     }
-    .press-feature-pub { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .press-feature-img-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+    .press-feature-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: saturate(0.55) brightness(0.80);
+      transition: filter 0.6s var(--ease-o), transform 0.6s var(--ease-o);
+    }
+    .press-feature-card:hover .press-feature-img {
+      filter: saturate(0.85) brightness(0.95);
+      transform: scale(1.04);
+    }
+    .press-feature-body {
+      padding: clamp(24px,3vw,44px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 1px solid rgba(255,255,255,0.06);
+    }
+    .press-feature-pub { display: flex; align-items: center; gap: 14px; margin-bottom: 0; }
     .press-feature-logo {
       height: 20px; width: auto;
       filter: brightness(0) invert(1); opacity: 0.45;
@@ -579,17 +640,27 @@
       letter-spacing: 0.08em; color: rgba(255,255,255,0.22);
     }
     .press-feature-headline {
-      font-family: var(--f-body); font-size: clamp(15px,1.5vw,20px);
-      font-weight: 300; line-height: 1.55; margin-bottom: 20px;
-      color: rgba(255,255,255,0.65);
+      font-family: var(--f-body); font-size: clamp(15px,1.6vw,21px);
+      font-weight: 300; line-height: 1.55;
+      color: rgba(255,255,255,0.70);
+      margin: clamp(20px,2.5vw,32px) 0;
     }
     .press-feature-cta {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-family: var(--f-mono); font-size: 11px;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--hero-accent); transition: letter-spacing 0.25s;
+      color: var(--hero-accent); transition: gap 0.3s, letter-spacing 0.3s;
     }
-    .press-feature-card:hover .press-feature-cta { letter-spacing: 0.20em; }
+    .press-feature-card:hover .press-feature-cta { letter-spacing: 0.20em; gap: 12px; }
+
+    @media (max-width: 640px) {
+      .press-feature-card { grid-template-columns: 1fr; }
+      .press-feature-img-wrap { aspect-ratio: 16/9; }
+      .press-feature-body { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); }
+      .press-seen-in { margin-bottom: clamp(24px,3vw,36px); }
+    }
 
     /* ── TYPOGRAPHY SYSTEM ─────────────────────────────────── */
     section { padding: clamp(72px, 10vw, 130px) clamp(24px, 4.5vw, 72px); }
@@ -746,7 +817,7 @@
     }
     .camp-row.camp-visible .camp-img-w::before { transform: scaleY(0); }
     .camp-ph-img, .camp-img-w img {
-      filter: saturate(0.07) brightness(0.68);
+      filter: saturate(0.32) brightness(0.78);
       transition: filter 0.85s ease, transform 0.85s var(--ease-o);
     }
     .camp-row:hover .camp-ph-img, .camp-row:hover .camp-img-w img {
@@ -2448,6 +2519,123 @@
       #beyond .s-title { font-size: clamp(48px,13vw,96px); }
     }
 
+    /* ── ABOUT PORTRAIT ─────────────────────────────────────────── */
+    .about-portrait-wrap {
+      margin-bottom: clamp(24px,3vw,36px);
+      overflow: hidden;
+      position: relative;
+    }
+    .about-portrait-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      filter: saturate(0.75) brightness(0.88);
+      transition: filter 0.65s var(--ease-o), transform 0.65s var(--ease-o);
+    }
+    .about-portrait-wrap:hover .about-portrait-img {
+      filter: saturate(0.80) brightness(0.92);
+      transform: scale(1.03);
+    }
+    /* lime hairline at top-left corner */
+    .about-portrait-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 32px; height: 2px;
+      background: var(--hero-accent);
+      z-index: 2;
+    }
+    .about-portrait-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 2px; height: 32px;
+      background: var(--hero-accent);
+      z-index: 2;
+    }
+
+    /* ── TIMELINE PHOTO ──────────────────────────────────────────── */
+    .tl-photo {
+      width: clamp(90px,13vw,168px);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      margin-top: 16px;
+      opacity: 0.42;
+      filter: saturate(0.35) brightness(0.7);
+      transition: opacity 0.45s var(--ease-o), filter 0.45s var(--ease-o), transform 0.45s var(--ease-o);
+    }
+    .tl-entry:hover .tl-photo {
+      opacity: 0.78;
+      filter: saturate(0.75) brightness(0.9);
+      transform: scale(1.03);
+    }
+    @media (max-width: 480px) {
+      .tl-photo { width: 80px; aspect-ratio: 1/1; }
+    }
+
+    /* ── PHOTO BREAK (full-bleed between sections) ───────────────── */
+    .photo-break {
+      width: 100%;
+      height: clamp(180px,28vw,400px);
+      overflow: hidden;
+      position: relative;
+    }
+    .photo-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      filter: brightness(0.52) saturate(0.65);
+      transform: scale(1.06);
+      transition: transform 8s var(--ease-o);
+    }
+    .photo-break.pb-loaded img { transform: scale(1.0); }
+    .photo-break::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right,
+        rgba(0,0,0,0.35) 0%,
+        transparent 40%,
+        transparent 60%,
+        rgba(0,0,0,0.35) 100%
+      );
+    }
+
+    /* ── SUPPORT SECTION BG IMAGE ────────────────────────────────── */
+    #support-journey {
+      position: relative;
+      overflow: hidden;
+    }
+    .support-bg-img {
+      position: absolute !important; inset: 0;
+      width: 100% !important; height: 100% !important;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: brightness(0.09) saturate(0.4);
+      z-index: 0 !important;
+    }
+    #support-journey > *:not(.support-bg-img) { position: relative; z-index: 1; }
+
+    /* ── GALLERY HOVER TILT ──────────────────────────────────────── */
+    .gallery-scroll-item {
+      perspective: 800px;
+    }
+    .gallery-scroll-item:hover img {
+      transform: scale(1.06) rotate(-0.6deg);
+      filter: brightness(1.08);
+    }
+
+    /* ── HERO PARALLAX override — JS controls transform directly ─── */
+    #hero.parallax-active .hero-bg {
+      transition: none;
+    }
+
     /* ── 9. FOOTER: Massive name stamp — satisfying close ─────── */
     .footer-name-wrap {
       position: relative; z-index: 2;
@@ -2621,7 +2809,7 @@
   <p class="logo-strip-label">Campaigns · Collaborations · Press</p>
   <div class="logo-strip-outer">
     <div class="logo-strip-track" aria-hidden="true">
-      <div class="logo-item"><img src="img/logo_meta.svg"        class="logo-img" alt="Meta"></div>
+      <div class="logo-item"><img src="img/logo_whatsapp.svg"     class="logo-img" alt="WhatsApp"></div>
       <div class="logo-item"><img src="img/logo_samsung.svg"     class="logo-img" alt="Samsung"></div>
       <div class="logo-item"><img src="img/logo_csk_etihad.svg"  class="logo-img" alt="CSK × Etihad"></div>
       <div class="logo-item"><span class="logo-wordmark">Neeraj Chopra</span></div>
@@ -2635,7 +2823,7 @@
       <div class="logo-item"><img src="img/logo_manorama.svg"    class="logo-img" alt="Manorama News"></div>
       <div class="logo-item"><img src="img/logo_indulge.svg"     class="logo-img" alt="Indulge Xpress"></div>
       <!-- duplicate for infinite scroll -->
-      <div class="logo-item"><img src="img/logo_meta.svg"        class="logo-img" alt="Meta"></div>
+      <div class="logo-item"><img src="img/logo_whatsapp.svg"    class="logo-img" alt="WhatsApp"></div>
       <div class="logo-item"><img src="img/logo_samsung.svg"     class="logo-img" alt="Samsung"></div>
       <div class="logo-item"><img src="img/logo_csk_etihad.svg"  class="logo-img" alt="CSK × Etihad"></div>
       <div class="logo-item"><span class="logo-wordmark">Neeraj Chopra</span></div>
@@ -2656,13 +2844,30 @@
 <section id="press" aria-label="Press coverage">
   <p class="s-label reveal">Press</p>
   <h2 class="s-title split-lines reveal d1">In the<br/>spotlight.</h2>
-  <a href="https://www.indulgexpress.com/life-style/beautyandwellness/2024/Oct/09/frisbee-star-pooja-raghu-teams-up-with-youneek-pro-science-breaking-barriers-and-boosting-beauty-for-the-world-ultimate-championships" target="_blank" rel="noopener" class="press-feature-card reveal d2">
-    <div class="press-feature-pub">
-      <img src="img/logo_indulge.svg" alt="Indulge Xpress" class="press-feature-logo">
-      <time class="press-feature-date">Oct 2024</time>
+
+  <!-- As seen in -->
+  <div class="press-seen-in reveal d1">
+    <span class="press-seen-label">As seen in</span>
+    <div class="press-seen-logos">
+      <img src="img/logo_indulge.svg"  alt="Indulge Xpress"          class="press-seen-logo">
+      <img src="img/logo_cnt.svg"      alt="Condé Nast Traveller"    class="press-seen-logo">
+      <img src="img/logo_manorama.svg" alt="Manorama News"           class="press-seen-logo">
     </div>
-    <p class="press-feature-headline">Frisbee Star Pooja Raghu Teams Up with Youneek Pro Science — Breaking Barriers and Boosting Beauty for the World Ultimate Championships</p>
-    <span class="press-feature-cta">Read the feature →</span>
+  </div>
+
+  <!-- Feature article -->
+  <a href="https://www.indulgexpress.com/life-style/beautyandwellness/2024/Oct/09/frisbee-star-pooja-raghu-teams-up-with-youneek-pro-science-breaking-barriers-and-boosting-beauty-for-the-world-ultimate-championships" target="_blank" rel="noopener" class="press-feature-card reveal d2">
+    <div class="press-feature-img-wrap">
+      <img src="img/pptx_image4.jpeg" alt="Pooja Raghu — Indulge Xpress feature" class="press-feature-img" loading="lazy">
+    </div>
+    <div class="press-feature-body">
+      <div class="press-feature-pub">
+        <img src="img/logo_indulge.svg" alt="Indulge Xpress" class="press-feature-logo">
+        <time class="press-feature-date">Oct 2024</time>
+      </div>
+      <p class="press-feature-headline">Frisbee Star Pooja Raghu Teams Up with Youneek Pro Science — Breaking Barriers and Boosting Beauty for the World Ultimate Championships</p>
+      <span class="press-feature-cta">Read the feature →</span>
+    </div>
   </a>
 </section>
 
@@ -2673,6 +2878,9 @@
 
   <div class="about-layout">
     <div>
+      <div class="about-portrait-wrap reveal d1">
+        <img src="img/poster_solo.png" alt="Pooja Raghu — WUCC Australia" class="about-portrait-img" loading="lazy" />
+      </div>
       <p class="p-body reveal d2">
         I have been competing internationally for ten years, across Ultimate, surfing, snowboarding, and rugby.
         I'm also an architect and designer by training, so every campaign I'm part of is built with real intention.
@@ -2695,7 +2903,7 @@
       </div>
       <div class="about-tag" data-hover-img="img/image69.jpeg">
         <span class="about-tag-key">Campaigns</span>
-        <span class="about-tag-val">Meta · Samsung · CSK × Etihad · Deepika Padukone · Neeraj Chopra</span>
+        <span class="about-tag-val">WhatsApp (Meta) · Samsung · CSK × Etihad · Deepika Padukone · Neeraj Chopra</span>
       </div>
       <div class="about-tag" data-hover-img="img/image99.jpeg">
         <span class="about-tag-key">Audience</span>
@@ -2807,6 +3015,11 @@
 
 </section>
 
+<!-- ══ PHOTO BREAK ══ -->
+<div class="photo-break" aria-hidden="true">
+  <img src="img/image63.jpeg" alt="" loading="lazy" />
+</div>
+
 <!-- ══ CAMPAIGNS ══ -->
 <section id="campaigns" aria-label="Campaign and editorial presence">
   <div class="camps-head">
@@ -2821,9 +3034,9 @@
       </div>
       <div class="camp-text reveal d1">
         <span class="camp-num" aria-hidden="true">01</span>
-        <p class="camp-eyebrow">Meta</p>
-        <h3 class="camp-title">WhatsApp · India Campaign</h3>
-        <p class="p-body">Featured as a real user voice, reaching millions across India through one of WhatsApp's largest storytelling campaigns.</p>
+        <p class="camp-eyebrow">WhatsApp · Meta</p>
+        <h3 class="camp-title">London Campaign</h3>
+        <p class="p-body">Featured as a real user voice in WhatsApp's London campaign — one of Meta's largest international storytelling activations.</p>
       </div>
     </div>
 
@@ -3020,7 +3233,7 @@
   </div>
 
   <div class="pship-cta-wrap reveal d3">
-    <p class="pship-cta-note">Not sure which tier fits? <a href="mailto:ar.pooja.raghu@gmail.com?subject=Partnership%20for%20WUCC%202026" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;" target="_blank" rel="noopener">Write to me ↗</a> and we'll figure it out together.</p>
+    <p class="pship-cta-note">Not sure which tier fits? <a href="mailto:hello@poojaraghu.com?subject=Partnership%20for%20WUCC%202026" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;" target="_blank" rel="noopener">Write to me ↗</a> and we'll figure it out together.</p>
   </div>
 
 </section>
@@ -3045,20 +3258,19 @@
       <div class="gallery-scroll-item"><img src="img/image42.jpeg"         alt="Surfing"          loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image35.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image21.jpeg"         alt="Modeling"         loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/photo_vogue.jpeg"     alt="Vogue editorial"  loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image_snow.jpeg"      alt="Sport action" loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image33.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image31.jpeg"         alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/photo_bw.jpeg"        alt="Portrait"         loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image97.jpeg"         alt="Ultimate Frisbee" loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image31.jpeg"    alt="Editorial"        loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/photo_sportsbra.jpeg" alt="Athletic editorial" loading="lazy"/></div>
+      <div class="gallery-scroll-item"><img src="img/image85.jpeg"         alt="Athletic editorial" loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image99.jpeg"         alt="World Ultimate Club Championships 2026"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image1.jpeg"     alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image71.jpeg"         alt="Sport"            loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image45.jpeg"    alt="Campaign"         loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image66.jpeg"         alt="Modeling"         loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/photo_snowboard.jpeg" alt="Sport action" loading="lazy"/></div>
+      <div class="gallery-scroll-item"><img src="img/image47.jpeg"         alt="Sport action"   loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image98.jpeg"         alt="Surfing"          loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image32.jpeg"    alt="Editorial"        loading="lazy"/></div>
 
@@ -3123,6 +3335,7 @@
 
 <!-- ══ SUPPORT THE JOURNEY ══ -->
 <section id="support-journey" aria-label="Support the Journey">
+  <img src="img/image64.jpeg" alt="" class="support-bg-img" aria-hidden="true" loading="lazy" />
   <div class="support-inner">
     <p class="support-label reveal">Community · Support</p>
     <h2 class="support-heading split-lines reveal d1">Support the<br/>Journey.</h2>
@@ -3331,6 +3544,69 @@
         document.removeEventListener('mousemove', onMouseMove);
       });
     });
+  })();
+
+  /* ── HERO PARALLAX ───────────────────────────────────────── */
+  (function () {
+    const heroBg = document.querySelector('.hero-bg');
+    const hero   = document.getElementById('hero');
+    if (!heroBg || !hero) return;
+    function applyParallax() {
+      const y = window.scrollY;
+      const heroH = hero.offsetHeight;
+      if (y < heroH) {
+        heroBg.style.transform = 'translateY(' + (y * 0.28) + 'px) scale(1.0)';
+      }
+    }
+    window.addEventListener('scroll', applyParallax, { passive: true });
+  })();
+
+  /* ── JOURNEY STAT COUNT-UP ───────────────────────────────── */
+  (function () {
+    function countUp(el, end, suffix, dur) {
+      let start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        const p = Math.min((ts - start) / dur, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(ease * end) + suffix;
+        if (p < 1) requestAnimationFrame(step); else el.textContent = end + suffix;
+      }
+      requestAnimationFrame(step);
+    }
+    const statDefs = [
+      { sel: '.journey-stat:nth-child(1) .jstat-value', end: 10, suffix: '+' },
+      { sel: '.journey-stat:nth-child(2) .jstat-value', end: 8,  suffix: '+' },
+      { sel: '.journey-stat:nth-child(3) .jstat-value', end: 4,  suffix: ''  },
+      { sel: '.journey-stat:nth-child(4) .jstat-value', end: 1,  suffix: ''  }
+    ];
+    const items = statDefs.map(d => ({ el: document.querySelector(d.sel), ...d, done: false })).filter(d => d.el);
+    items.forEach(d => { d.el.textContent = '0' + d.suffix; });
+    function check() {
+      let allDone = true;
+      items.forEach(d => {
+        if (d.done) return;
+        allDone = false;
+        const rect = d.el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+          d.done = true;
+          countUp(d.el, d.end, d.suffix, 1300);
+        }
+      });
+      if (allDone) window.removeEventListener('scroll', check);
+    }
+    window.addEventListener('scroll', check, { passive: true });
+    // Also check once after a short delay in case already in view
+    setTimeout(check, 400);
+  })();
+
+  /* ── PHOTO BREAK LOAD TRIGGER ────────────────────────────── */
+  (function () {
+    const pb = document.querySelector('.photo-break');
+    if (!pb) return;
+    const img = pb.querySelector('img');
+    if (img && img.complete) { pb.classList.add('pb-loaded'); }
+    else if (img) { img.addEventListener('load', () => pb.classList.add('pb-loaded')); }
   })();
 
   /* ── NAV SCROLL ─────────────────────────────────────────── */
