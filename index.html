@@ -1268,11 +1268,16 @@
 
     /* ── PARTNERSHIP (merged into WUCC) ──────────────────────── */
     #partnership { margin-top: clamp(28px,4vw,44px); }
+    .collab-section-label {
+      font-size: clamp(13px, 1.5vw, 15px);
+      letter-spacing: 0.14em;
+      opacity: 0.9;
+    }
     /* Tint card grid to match WUCC green background */
     #wucc .collab-grid    { background: rgba(196,246,72,0.07); }
-    #wucc .collab-card    { background: #071d15; }
-    #wucc .collab-card:hover { background: rgba(196,246,72,0.04); }
-    #wucc .collab-card-featured { background: #0b2419; }
+    #wucc .collab-card    { background: #071d15; border-color: rgba(196,246,72,0.10); }
+    #wucc .collab-card:hover { background: rgba(196,246,72,0.04); border-color: rgba(196,246,72,0.18); }
+    #wucc .collab-card-featured { background: #0b2419; border-color: rgba(196,246,72,0.30); }
     #wucc .collab-card-featured:hover { background: #0e2c1e; }
     #wucc .collab-features { border-top-color: rgba(196,246,72,0.10); }
     #wucc .collab-features li::before { color: rgba(196,246,72,0.28); }
@@ -1932,6 +1937,7 @@
     }
     .collab-card {
       background: var(--ink);
+      border: 1px solid rgba(255,255,255,0.08);
       padding: clamp(22px,3vw,40px) clamp(18px,2.5vw,32px);
       display: flex; flex-direction: column;
       position: relative;
@@ -1940,6 +1946,7 @@
     .collab-card:hover { background: rgba(255,255,255,0.014); }
     .collab-card-featured {
       background: #091a10;
+      border: 1px solid rgba(196,246,72,0.25);
       border-top: 2px solid var(--hero-accent);
     }
     .collab-card-featured:hover { background: #0b1f13; }
@@ -3084,7 +3091,7 @@
   <div class="wucc-hero-row">
     <div class="wucc-hero-left">
       <p class="s-label reveal">The World Stage</p>
-      <h2 class="s-title split-lines reveal d1">Once In<br/>Four Years.</h2>
+      <h2 class="s-title split-lines reveal d1">Once In<br/>Four Years.<br/>One Opportunity.</h2>
       <p class="p-body reveal d2" style="margin-top:24px;">
         We're heading to the World Ultimate Club Championships (WUCC) 2026 in Limerick, Ireland. <strong>Only the second Indian mixed club in history</strong>
         to compete at this level. The tournament happens once every four years.
@@ -3127,7 +3134,7 @@
 
   <!-- Partnership tiers — collapsed into WUCC section -->
   <div id="partnership" style="margin-top: clamp(48px,6vw,80px);">
-    <p class="s-label reveal" style="margin-bottom:12px;">Collaborate · 2026</p>
+    <p class="s-label collab-section-label reveal" style="margin-bottom:12px;">Collaborate · 2026</p>
   </div>
   <div class="collab-grid reveal d2" style="margin-top:clamp(28px,3.5vw,40px);" aria-label="Partnership tiers">
 
