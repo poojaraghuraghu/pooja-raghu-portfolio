@@ -70,7 +70,8 @@
         "@id": "https://poojaraghu.com/#wucc2026",
         "name": "World Ultimate Club Championships 2026",
         "alternateName": "WUCC 2026",
-        "startDate": "2026-07-01",
+        "startDate": "2026-08-15",
+        "endDate": "2026-08-22",
         "location": {
           "@type": "Place",
           "name": "Limerick, Ireland",
@@ -2535,9 +2536,6 @@
       transition: filter 0.65s var(--ease-o), transform 0.65s var(--ease-o);
     }
     .about-portrait-wrap:hover .about-portrait-img {
-      filter: saturate(0.30) brightness(0.88) contrast(1.05);
-    }
-    .about-portrait-wrap:hover .about-portrait-img {
       filter: saturate(0.80) brightness(0.92);
       transform: scale(1.03);
     }
@@ -3101,6 +3099,7 @@
         class="wucc-badge-svg"
         src="https://wucc.sport/wp-content/uploads/2025/07/Asset-2.png"
         alt="World Ultimate Club Championships (WUCC) 2026 Limerick Ireland official logo"
+        loading="lazy"
       />
     </div>
   </div>
@@ -3236,7 +3235,7 @@
   </div>
 
   <div class="pship-cta-wrap reveal d3">
-    <p class="pship-cta-note">Not sure which tier fits? <a href="mailto:hello@poojaraghu.com?subject=Partnership%20for%20WUCC%202026" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;" target="_blank" rel="noopener">Write to me ↗</a> and we'll figure it out together.</p>
+    <p class="pship-cta-note">Not sure which tier fits? <a href="mailto:hello@poojaraghu.com?subject=Partnership%20for%20WUCC%202026" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;">Write to me ↗</a> and we'll figure it out together.</p>
   </div>
 
 </section>
@@ -3784,7 +3783,7 @@
         card.innerHTML = `
           <span class="stagger-slash" aria-hidden="true"></span>
           <div class="stagger-num">${numLabel}</div>
-          <img src="${d.src}" alt="${d.name}" class="stagger-avatar" loading="lazy">
+          <img src="${d.src}" alt="${d.role.split('·')[0].trim()} logo" class="stagger-avatar" loading="lazy">
           <p class="stagger-quote">"${d.quote}"</p>
           <div class="stagger-byline">
             <span class="stagger-name">${d.name}</span>
