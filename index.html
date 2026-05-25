@@ -2529,10 +2529,13 @@
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 10%;
       display: block;
-      filter: saturate(0.70) brightness(0.82);
+      filter: saturate(0.12) brightness(0.78) contrast(1.08);
       transition: filter 0.65s var(--ease-o), transform 0.65s var(--ease-o);
+    }
+    .about-portrait-wrap:hover .about-portrait-img {
+      filter: saturate(0.30) brightness(0.88) contrast(1.05);
     }
     .about-portrait-wrap:hover .about-portrait-img {
       filter: saturate(0.80) brightness(0.92);
@@ -2879,7 +2882,7 @@
   <div class="about-layout">
     <!-- Left: portrait only -->
     <div class="about-portrait-wrap reveal d1">
-      <img src="img/image91.jpeg" alt="Pooja Raghu — editorial portrait" class="about-portrait-img" loading="lazy" />
+      <img src="img/poster_solo.png" alt="Pooja Raghu — WUCC jump" class="about-portrait-img" loading="lazy" />
     </div>
 
     <!-- Right: bio paragraph + credentials -->
@@ -3561,47 +3564,6 @@
     window.addEventListener('scroll', applyParallax, { passive: true });
   })();
 
-  /* ── JOURNEY STAT COUNT-UP ───────────────────────────────── */
-  (function () {
-    function countUp(el, end, suffix, dur) {
-      var start = null;
-      function step(ts) {
-        if (!start) start = ts;
-        var p = Math.min((ts - start) / dur, 1);
-        var ease = 1 - Math.pow(1 - p, 3);
-        el.textContent = Math.floor(ease * end) + suffix;
-        if (p < 1) requestAnimationFrame(step); else el.textContent = end + suffix;
-      }
-      requestAnimationFrame(step);
-    }
-    var statDefs = [
-      { pSel: '.journey-stats .journey-stat:nth-child(1)', end: 10, suffix: '+' },
-      { pSel: '.journey-stats .journey-stat:nth-child(2)', end: 8,  suffix: '+' },
-      { pSel: '.journey-stats .journey-stat:nth-child(3)', end: 4,  suffix: ''  },
-      { pSel: '.journey-stats .journey-stat:nth-child(4)', end: 1,  suffix: ''  }
-    ];
-    var items = statDefs.map(function(d) {
-      var parent = document.querySelector(d.pSel);
-      var el = parent ? parent.querySelector('.jstat-value') : null;
-      return { parent: parent, el: el, end: d.end, suffix: d.suffix, done: false };
-    }).filter(function(d) { return d.parent && d.el; });
-    items.forEach(function(d) { d.el.textContent = '0' + d.suffix; });
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (!entry.isIntersecting) return;
-        var item = null;
-        for (var i = 0; i < items.length; i++) {
-          if (items[i].parent === entry.target) { item = items[i]; break; }
-        }
-        if (item && !item.done) {
-          item.done = true;
-          io.unobserve(entry.target);
-          countUp(item.el, item.end, item.suffix, 1300);
-        }
-      });
-    }, { threshold: 0.3, rootMargin: '0px 0px -5% 0px' });
-    items.forEach(function(d) { io.observe(d.parent); });
-  })();
 
   /* ── PHOTO BREAK LOAD TRIGGER ────────────────────────────── */
   (function () {
@@ -3693,28 +3655,38 @@
   /* ── COUNTUP NUMBERS (Road Here stats) ──────────────────── */
   (function () {
     function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
-    function runCount(el) {
-      const raw = el.textContent.trim();
-      const m = raw.match(/^(\d+)(.*)$/);
+    // Store original targets before any zeroing
+    document.querySelectorAll('.journey-stats .jstat-value').forEach(function(el) {
+      el.dataset.countTarget = el.textContent.trim();
+      el.textContent = el.textContent.replace(/\d+/, '0');
+    });
+    function runCount(statDiv) {
+      var el = statDiv.querySelector('.jstat-value');
+      if (!el || el.dataset.counted) return;
+      el.dataset.counted = '1';
+      var raw = el.dataset.countTarget || '';
+      var m = raw.match(/^(\d+)(.*)$/);
       if (!m) return;
-      const target = parseInt(m[1], 10);
-      const suffix = m[2] || '';
-      const duration = 1500;
-      const t0 = performance.now();
+      var target = parseInt(m[1], 10);
+      var suffix = m[2] || '';
+      var duration = 1500;
+      var t0 = performance.now();
       el.classList.add('counting');
       (function frame(now) {
-        const p = Math.min((now - t0) / duration, 1);
+        var p = Math.min((now - t0) / duration, 1);
         el.textContent = Math.round(easeOutQuart(p) * target) + suffix;
         if (p < 1) { requestAnimationFrame(frame); }
-        else { el.classList.remove('counting'); }
+        else { el.textContent = target + suffix; el.classList.remove('counting'); }
       })(t0);
     }
-    const cObs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
+    var cObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
         if (e.isIntersecting) { runCount(e.target); cObs.unobserve(e.target); }
       });
-    }, { threshold: 0.55 });
-    document.querySelectorAll('.jstat-value').forEach(el => cObs.observe(el));
+    }, { threshold: 0.25 });
+    document.querySelectorAll('.journey-stats .journey-stat').forEach(function(div) {
+      cObs.observe(div);
+    });
   })();
 
   /* ── COUNTDOWN ───────────────────────────────────────────── */
