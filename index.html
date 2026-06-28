@@ -1165,118 +1165,60 @@
       padding: clamp(64px,9vw,112px) clamp(24px,4.5vw,72px) clamp(80px,11vw,132px);
     }
 
-    /* ── STAGGER TESTIMONIALS ──────────────────────────────────── */
-    .stagger-outer {
-      margin-top: clamp(48px,6vw,72px);
-      display: flex; flex-direction: column; align-items: center; gap: 0;
+    /* ── VOICE TESTIMONIAL GRID ──────────────────────────────── */
+    .voices-grid {
+      margin-top: clamp(40px,5vw,56px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
     }
-    .stagger-stage {
-      position: relative;
-      width: 100%;
-      height: clamp(420px, 52vw, 540px);
-    }
-    .stagger-card {
-      position: absolute;
-      left: 50%; top: 50%;
-      width: clamp(240px,22vw,300px);
-      height: clamp(300px,28vw,360px);
-      padding: 24px 22px 22px;
+    .voice-card {
+      background: var(--ink);
+      padding: clamp(26px,3vw,38px) clamp(22px,2.5vw,30px);
       display: flex; flex-direction: column;
-      cursor: pointer;
-      will-change: transform, opacity;
-      transition: transform 0.55s cubic-bezier(.35,1.4,.4,1),
-                  opacity   0.45s ease,
-                  border-color 0.3s,
-                  background   0.3s,
-                  box-shadow   0.3s;
-      clip-path: polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%);
-      overflow: visible;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
     }
-    .stagger-card.is-center {
+    .voice-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; width: 100%; height: 2px;
       background: var(--hero-accent);
-      border: 2px solid var(--hero-accent);
-      box-shadow: 0 10px 0 4px rgba(196,246,72,0.18), 0 24px 48px rgba(0,0,0,0.45);
-      z-index: 10; cursor: default;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.45s var(--ease-o);
     }
-    .stagger-card.is-side {
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(196,246,72,0.14);
-      box-shadow: none;
-      z-index: 5;
-    }
-    .stagger-card.is-side:hover {
-      border-color: rgba(196,246,72,0.35);
-      background: rgba(196,246,72,0.04);
-    }
-    /* diagonal slash on cut corner */
-    .stagger-slash {
-      position: absolute; right: -1px; top: 35px;
-      width: 52px; height: 1.5px;
-      transform: rotate(-45deg); transform-origin: 100% 50%;
-      pointer-events: none;
-    }
-    .is-center .stagger-slash { background: rgba(0,0,0,0.18); }
-    .is-side   .stagger-slash { background: rgba(196,246,72,0.30); }
-    /* avatar */
-    .stagger-avatar {
-      width: 100px; height: 48px;
-      object-fit: contain; object-position: left center;
-      margin-bottom: 16px; flex-shrink: 0;
-      display: block; border-radius: 4px;
-    }
-    .is-center .stagger-avatar { box-shadow: none; }
-    .is-side   .stagger-avatar { box-shadow: none; }
-    /* quote number */
-    .stagger-num {
+    .voice-card:hover { background: rgba(255,255,255,0.018); }
+    .voice-card:hover::before { transform: scaleX(1); }
+    .voice-num {
       font-family: var(--f-mono); font-style: italic; font-size: 10px;
-      letter-spacing: .08em; margin-bottom: 14px;
+      letter-spacing: .08em; color: rgba(196,246,72,0.38);
+      margin-bottom: 16px;
     }
-    .is-center .stagger-num { color: rgba(0,0,0,0.35); }
-    .is-side   .stagger-num { color: rgba(196,246,72,0.35); }
-    /* quote text */
-    .stagger-quote {
-      font-family: var(--f-body); font-size: clamp(12px,1vw,13.5px);
-      font-weight: 400; line-height: 1.7; flex: 1;
-      margin: 0;
+    .voice-avatar {
+      width: 100px; height: 40px;
+      object-fit: contain; object-position: left center;
+      margin-bottom: 18px; flex-shrink: 0;
+      display: block;
     }
-    .is-center .stagger-quote { color: rgba(0,0,0,0.78); }
-    .is-side   .stagger-quote { color: rgba(255,255,255,0.42); }
-    /* byline */
-    .stagger-byline { margin-top: 16px; flex-shrink: 0; }
-    .stagger-name {
+    .voice-quote {
+      font-family: var(--f-body); font-size: clamp(12.5px,1vw,14px);
+      font-style: italic; font-weight: 300; line-height: 1.75; flex: 1;
+      color: rgba(255,255,255,0.50);
+      margin: 0 0 22px;
+    }
+    .voice-byline { margin-top: auto; flex-shrink: 0; }
+    .voice-name {
       display: block;
       font-family: var(--f-sans); font-size: 13px; font-weight: 600;
-      letter-spacing: -.01em;
+      letter-spacing: -.01em; color: white;
     }
-    .is-center .stagger-name { color: rgba(0,0,0,0.85); }
-    .is-side   .stagger-name { color: white; }
-    .stagger-role {
+    .voice-role {
       display: block;
       font-family: var(--f-mono); font-style: italic; font-size: 10px;
       letter-spacing: .05em; margin-top: 3px;
+      color: var(--hero-accent);
     }
-    .is-center .stagger-role { color: rgba(0,0,0,0.5); }
-    .is-side   .stagger-role { color: var(--hero-accent); }
-    /* nav buttons */
-    .stagger-controls {
-      display: flex; gap: 10px;
-      margin-top: clamp(16px, 2vw, 24px);
-    }
-    .stagger-btn {
-      width: 48px; height: 48px; border-radius: 0;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.09);
-      color: white;
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; transition: background 0.22s, color 0.22s, border-color 0.22s;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-    }
-    .stagger-btn:hover {
-      background: var(--hero-accent); color: var(--ink); border-color: transparent;
-    }
-    .stagger-btn:focus-visible {
-      outline: 2px solid var(--hero-accent); outline-offset: 3px;
-    }
+    @media (max-width: 860px) { .voices-grid { grid-template-columns: 1fr; } }
 
     /* ── PARTNERSHIP (merged into WUCC) ──────────────────────── */
     #partnership { margin-top: clamp(28px,4vw,44px); }
@@ -1332,25 +1274,18 @@
     /* ── VOICES — standalone full page ─────────────────────────── */
     #voices {
       background: var(--ink);
-      display: grid; grid-template-columns: 2fr 3fr;
-      align-items: center; gap: clamp(40px,6vw,88px);
       padding: clamp(72px,9vw,112px) clamp(24px,4.5vw,72px);
       border-top: 1px solid rgba(255,255,255,0.06);
     }
-    .voices-meta { display: flex; flex-direction: column; }
+    .voices-meta { display: flex; flex-direction: column; max-width: 640px; }
     .voices-sub {
       font-family: var(--f-body); font-size: clamp(13px,1.1vw,15px);
       font-weight: 300; line-height: 1.7;
-      color: rgba(255,255,255,0.30); max-width: 30ch;
+      color: rgba(255,255,255,0.30); max-width: 38ch;
       margin-top: 18px;
     }
-    .voices-meta .stagger-controls { margin-top: clamp(28px,4vw,48px); }
-    #voices .stagger-outer { margin-top: 0; display: flex; flex-direction: column; align-items: center; }
-    #voices .stagger-stage { height: clamp(420px,48vw,560px); width: 100%; }
     @media (max-width: 760px) {
-      #voices { grid-template-columns: 1fr; align-items: flex-start;
-        padding-top: clamp(96px,16vw,116px); gap: clamp(24px,5vw,36px); }
-      #voices .stagger-stage { height: clamp(300px,80vw,380px); }
+      #voices { padding-top: clamp(96px,16vw,116px); }
     }
 
     /* ── FOOTER — connect, standalone full page ─────────────────── */
@@ -2199,37 +2134,6 @@
     @media (max-width: 480px) {
       .pillar-card::after { display: none; }
       .pillar-heading { font-size: clamp(18px,5vw,26px); }
-    }
-
-    /* ── TESTIMONIALS MOBILE ──────────────────────────────────── */
-    @media (max-width: 640px) {
-      .stagger-stage { height: clamp(320px,84vw,400px); overflow: hidden; }
-      .stagger-card { width: clamp(200px,66vw,260px); height: clamp(260px,72vw,310px); padding: 18px 16px 16px; }
-      .stagger-quote { font-size: 12px; }
-
-      /* ── Voices: single-card mode — side cards shoot off-screen on narrow phones ── */
-      #voices { }
-      #voices .stagger-stage { height: 300px; }
-
-      /* Override JS inline transform: remove y:-55px lift, keep only center */
-      #voices .stagger-card.is-center {
-        width: min(76vw, 268px) !important;
-        height: auto !important;
-        min-height: 250px;
-        transform: translate(-50%, -50%) !important;
-        padding: 20px 18px 18px;
-      }
-      /* Hide side cards entirely — xFactor 0.72 puts them ~170px off each edge */
-      #voices .stagger-card.is-side {
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-    }
-    @media (max-width: 380px) {
-      .stagger-card { width: 200px; height: 260px; }
-      .stagger-stage { height: 340px; }
-      #voices .stagger-stage { height: 280px; }
-      #voices .stagger-card.is-center { width: min(82vw, 240px) !important; min-height: 240px; }
     }
 
     /* ── PARTNERSHIP SECTION MOBILE ───────────────────────────── */
@@ -3340,29 +3244,13 @@
 <!-- ══ VOICES ══ -->
 <section id="voices" aria-label="Voices — what brands say">
 
-  <!-- Left: label + title + controls -->
   <div class="voices-meta">
     <p class="s-label reveal">Voices</p>
     <h2 class="s-title split-lines reveal d1">What brands<br/>say.</h2>
     <p class="voices-sub reveal d2">From brands who partnered and came back.</p>
-    <div class="stagger-controls reveal d3">
-      <button class="stagger-btn" id="stagger-prev" aria-label="Previous testimonial">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <button class="stagger-btn" id="stagger-next" aria-label="Next testimonial">
-        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </div>
   </div>
 
-  <!-- Right: carousel -->
-  <div class="stagger-outer reveal d1">
-    <div class="stagger-stage" id="stagger-stage"></div>
-  </div>
+  <div class="voices-grid reveal d1" id="voices-grid"></div>
 
 </section>
 
@@ -3739,127 +3627,45 @@
   }
   tick(); setInterval(tick, 1000);
 
-  /* ── STAGGER TESTIMONIALS ────────────────────────────────── */
+  /* ── VOICE TESTIMONIALS ──────────────────────────────────── */
   (function () {
     const BASE = [
       {
         id: 0,
         name: 'Liesl Goecker', role: 'Nua',
-        quote: 'Pooja is a wonderful athlete and collaborative partner. She\'s always willing to find a solution that works for the brand, and she\'s actively using her platform for good.',
+        quote: 'Pooja is a wonderful player and collaborative partner. She\'s always willing to find a solution that works for the brand. She\'s actively using her platform for good, living as a role model for girls in the next generation. This perfectly resonates when she represents India in Ultimate Frisbee. We love working with her, and wish her the best in all her endeavours.',
         src: 'img/logo_nua.svg'
       },
       {
         id: 1,
         name: 'Samriddh Dasgupta', role: 'Arata · Multi-year Partnership',
-        quote: 'What began as a sponsorship has grown into a deeper association. Her organic content has added immense value. We are proud to support her journey for years to come.',
+        quote: 'At Arata, we believe in the transformative power of sport and the resilience of athletes who strive for excellence. As a female athlete in a lesser-known sport, Pooja has faced many challenges, and her unwavering conviction inspired us to partner with her.<br/><br/>What began as a sponsorship for her championship travels has grown into a deeper association, where we learn about the unique hair-care needs of athletes and develop products accordingly. She has been a passionate supporter of our brand, and her organic content has added immense value.<br/><br/>As Pooja represents India on the international stage, we are proud to be part of her daily routine and look forward to supporting her journey for many years to come.',
         src: 'img/logo_arata.svg'
       },
       {
         id: 2,
         name: 'Shishir Saryan', role: 'Mossant · Brand Campaign',
-        quote: 'Pooja brings warmth and professionalism that makes every collaboration meaningful. An outstanding athlete and a genuine human to work with.',
+        quote: 'Pooja is not only an outstanding Ultimate Frisbee athlete but also a wonderful human to work with. She brings warmth and professionalism that makes every collaboration meaningful. Beyond the field, she inspires young girls to believe in themselves and pursue their passions. Watching her represent India on the global stage is both inspiring and deeply aligned with our values. We are proud to support her journey and wish her continued success in everything she sets out to achieve.',
         src: 'img/logo_mossant.svg'
       }
     ];
 
-    const stage = document.getElementById('stagger-stage');
-    const btnPrev = document.getElementById('stagger-prev');
-    const btnNext = document.getElementById('stagger-next');
-    if (!stage) return;
+    const grid = document.getElementById('voices-grid');
+    if (!grid) return;
 
-    let list = [...BASE];
-
-    // offset map: position → {x%, y, rotate, scale, opacity, zIndex}
-    // x is relative to card width so it stays responsive
-    const OFFSETS = {
-      '-1': { xFactor: -0.72, y: 18,  r: -3,   s: 0.9,  o: 1,   z: 5 },
-       '0': { xFactor:  0,    y: -55, r: 0,    s: 1,    o: 1,   z: 10 },
-       '1': { xFactor:  0.72, y: 18,  r: 3,    s: 0.9,  o: 1,   z: 5 },
-    };
-    const HIDDEN = { xFactor: 0, y: 0, r: 0, s: 0.7, o: 0, z: 0 };
-
-    function getCardWidth() {
-      // mirrors the CSS clamp(240px, 22vw, 300px)
-      return Math.min(300, Math.max(240, window.innerWidth * 0.22));
-    }
-
-    function render() {
-      // preload images
-      BASE.forEach(d => { const i = new Image(); i.src = d.src; });
-
-      stage.innerHTML = '';
-      const N = list.length;
-      const centerIdx = Math.floor(N / 2);
-      const cardW = getCardWidth();
-
-      list.forEach((d, i) => {
-        const pos  = i - centerIdx;
-        const isCenter = pos === 0;
-        const off  = OFFSETS[String(pos)] || HIDDEN;
-
-        const card = document.createElement('div');
-        card.className = `stagger-card ${isCenter ? 'is-center' : 'is-side'}`;
-        card.style.transform = [
-          'translate(-50%, -50%)',
-          `translateX(${off.xFactor * cardW}px)`,
-          `translateY(${off.y}px)`,
-          `rotate(${off.r}deg)`,
-          `scale(${off.s})`
-        ].join(' ');
-        card.style.opacity = off.o;
-        card.style.zIndex  = off.z;
-
-        const numLabel = String(d.id + 1).padStart(2, '0');
-
-        card.innerHTML = `
-          <span class="stagger-slash" aria-hidden="true"></span>
-          <div class="stagger-num">${numLabel}</div>
-          <img src="${d.src}" alt="${d.role.split('·')[0].trim()} logo" class="stagger-avatar" loading="lazy">
-          <p class="stagger-quote">"${d.quote}"</p>
-          <div class="stagger-byline">
-            <span class="stagger-name">${d.name}</span>
-            <span class="stagger-role">${d.role}</span>
-          </div>`;
-
-        if (!isCenter) {
-          card.addEventListener('click', () => handleMove(pos));
-        }
-        stage.appendChild(card);
-      });
-    }
-
-    function handleMove(steps) {
-      if (steps > 0) {
-        for (let i = 0; i < steps; i++) {
-          const item = list.shift();
-          list.push({ ...item });
-        }
-      } else {
-        for (let i = 0; i > steps; i--) {
-          const item = list.pop();
-          list.unshift({ ...item });
-        }
-      }
-      render();
-      resetTimer();
-    }
-
-    let timer = null;
-    function resetTimer() {
-      clearInterval(timer);
-      timer = setInterval(() => handleMove(1), 5400);
-    }
-
-    btnPrev && btnPrev.addEventListener('click', () => handleMove(-1));
-    btnNext && btnNext.addEventListener('click', () => handleMove(1));
-    window.addEventListener('keydown', e => {
-      if (e.key === 'ArrowLeft')  handleMove(-1);
-      if (e.key === 'ArrowRight') handleMove(1);
-    });
-    window.addEventListener('resize', render);
-
-    render();
-    resetTimer();
+    grid.innerHTML = BASE.map(d => {
+      const numLabel = String(d.id + 1).padStart(2, '0');
+      return `
+        <div class="voice-card">
+          <div class="voice-num">${numLabel}</div>
+          <img src="${d.src}" alt="${d.role.split('·')[0].trim()} logo" class="voice-avatar" loading="lazy">
+          <p class="voice-quote">"${d.quote}"</p>
+          <div class="voice-byline">
+            <span class="voice-name">${d.name}</span>
+            <span class="voice-role">${d.role}</span>
+          </div>
+        </div>`;
+    }).join('');
   })();
 
   /* ── GALLERY INFINITE SCROLL (JS, no DOM duplication) ──── */
