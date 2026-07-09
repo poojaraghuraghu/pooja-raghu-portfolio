@@ -901,6 +901,50 @@
       color: rgba(255,255,255,0.24); text-transform: uppercase;
     }
 
+    /* ── GOLD · TRIO 2026 ──────────────────────────────────── */
+    .gold-layout {
+      display: grid; grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(36px,5vw,80px); align-items: start;
+      margin-top: clamp(8px,1.5vw,16px);
+    }
+    .gold-story { max-width: 560px; }
+    .gold-facts { margin-top: clamp(24px,3vw,36px); }
+    .gold-imgs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(10px,1.4vw,18px);
+    }
+    .gold-img-wrap {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.02);
+    }
+    .gold-img-wrap img {
+      width: 100%; height: 100%; aspect-ratio: 3/4;
+      object-fit: cover; display: block;
+      filter: saturate(0.9);
+      transition: transform 0.6s var(--ease-o), filter 0.6s;
+    }
+    .gold-img-wrap:hover img { transform: scale(1.03); filter: saturate(1); }
+    .gold-img-cap {
+      font-family: var(--f-mono); font-style: italic;
+      font-size: 9.5px; letter-spacing: 0.10em; text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      padding: 10px 2px 0;
+    }
+    @media (max-width: 860px) {
+      .gold-layout { grid-template-columns: 1fr; }
+    }
+
+    /* ── WHY · ONE PARTNER ─────────────────────────────────── */
+    .why-layout {
+      display: grid; grid-template-columns: 0.95fr 1.05fr;
+      gap: clamp(36px,5vw,80px); align-items: start;
+      margin-top: clamp(8px,1.5vw,16px);
+    }
+    @media (max-width: 860px) {
+      .why-layout { grid-template-columns: 1fr; }
+    }
+
     /* ── WUCC ──────────────────────────────────────────────── */
     .wucc-hero-row {
       display: flex;
@@ -2581,36 +2625,6 @@
 </head>
 <body>
 
-<!-- ══ FLOATING STRIP CTA ══ -->
-<div id="float-cta" role="complementary" aria-label="Collaborate with Pooja ahead of World Ultimate Club Championships 2026">
-  <div class="fcta-strip">
-    <div class="fcta-left">
-      <span class="fcta-dot"></span>
-      <span class="fcta-event">WUCC 2026</span>
-      <div class="fcta-divider"></div>
-      <div class="fcta-clock">
-        <div class="fcta-unit"><span class="fcta-cd-num" id="fcta-days">--</span><span class="fcta-cd-lab">days</span></div>
-        <span class="fcta-sep">:</span>
-        <div class="fcta-unit"><span class="fcta-cd-num" id="fcta-hours">--</span><span class="fcta-cd-lab">hrs</span></div>
-        <span class="fcta-sep">:</span>
-        <div class="fcta-unit"><span class="fcta-cd-num" id="fcta-mins">--</span><span class="fcta-cd-lab">min</span></div>
-        <span class="fcta-sep">:</span>
-        <div class="fcta-unit"><span class="fcta-cd-num" id="fcta-secs">--</span><span class="fcta-cd-lab">sec</span></div>
-      </div>
-    </div>
-    <div class="fcta-mid">
-      <p class="fcta-tagline"><strong>World Ultimate Club Championships 2026, Limerick.</strong> Be part of the journey.</p>
-    </div>
-    <div class="fcta-right">
-      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20collaboration%20with%20you." class="fcta-btn" id="fcta-cta-btn" target="_blank" rel="noopener">Let's collaborate →</a>
-    </div>
-  </div>
-  <!-- Mobile full-width CTA (below timer row) -->
-  <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20collaboration%20with%20you." class="fcta-mobile-btn" target="_blank" rel="noopener">
-    Let's collaborate →
-  </a>
-</div>
-
 <!-- ══ FRISBEE CURSOR ══ -->
 <div id="frisbee-cursor">
   <svg class="frisbee-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2638,7 +2652,7 @@
     <span class="nav-wordmark">Pooja Raghu</span>
   </a>
   <div class="nav-right">
-    <a href="#beyond" class="nav-link">Identity</a>
+    <a href="#gold" class="nav-link">Gold '26</a>
     <a href="#journey" class="nav-link">Journey</a>
     <a href="#wucc" class="nav-link">WUCC '26</a>
     <a href="#partnership" class="nav-link">Collaborate</a>
@@ -2695,7 +2709,7 @@
 
 <!-- ══ MOBILE MENU ══ -->
 <div id="mobile-menu" role="dialog" aria-label="Navigation menu" aria-modal="true">
-  <a href="#beyond"      class="mob-nav-link">Identity</a>
+  <a href="#gold"        class="mob-nav-link">Gold '26</a>
   <a href="#journey"     class="mob-nav-link">Journey</a>
   <a href="#wucc"        class="mob-nav-link">WUCC '26</a>
   <a href="#partnership" class="mob-nav-link">Collaborate</a>
@@ -2709,18 +2723,18 @@
   <div class="hero-bg" role="img" aria-label="Pooja Raghu in action"></div>
   <div class="hero-content">
     <div class="hero-main">
-      <p class="hero-micro-label">India · International Athlete</p>
+      <p class="hero-micro-label">Gold Medallist · TRIO Invitational 2026</p>
       <h1 class="hero-headline">
         <span class="hl-line">From India.</span>
         <span class="hl-line">To Worlds.</span>
       </h1>
-      <p class="hero-support">International multi-sport athlete, creator, and strategist — competing at the World Ultimate Club Championships 2026 in Limerick, Ireland.</p>
+      <p class="hero-support">International athlete, creator, and strategist from India. I partner with brands on campaigns across sport, wellness, travel, and lifestyle — fresh from gold in Malaysia, headed to the World Ultimate Club Championships in Limerick.</p>
       <div class="hero-ctas">
         <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20collaboration%20with%20you." class="hero-btn-primary" target="_blank" rel="noopener">
           <span>Work With Me</span>
           <span class="hero-btn-primary-arrow">→</span>
         </a>
-        <a href="#journey" class="hero-btn-secondary">Explore Journey ↗</a>
+        <a href="#partnership" class="hero-btn-secondary">View Partnerships ↗</a>
       </div>
       <p class="hero-name-id"><strong>Pooja Raghu</strong> · Athlete · Creator · Strategist</p>
     </div>
@@ -2783,6 +2797,48 @@
   </div>
 </div>
 
+<!-- ══ GOLD · TRIO 2026 ══ -->
+<section id="gold" aria-label="Gold at the TRIO Invitational 2026">
+  <p class="s-label reveal">July 5, 2026 · Putrajaya, Malaysia</p>
+  <h2 class="s-title split-lines reveal d1">Gold for<br/>Indian Ultimate.</h2>
+
+  <div class="gold-layout">
+    <div class="gold-story">
+      <p class="p-body reveal d2">
+        At the Equestrian Park in Putrajaya, Airbenders — the Bengaluru club I've grown up with — beat a
+        14-team international field to win mixed-division gold at the TRIO Invitational Tournament 2026.
+        Clubs from Australia, Malaysia, Vietnam, Thailand, and Hong Kong. A self-funded team from India
+        that trains at dawn because that's when grounds are affordable.
+      </p>
+      <p class="p-body reveal d2" style="margin-top:16px;">
+        The Hindu called the win a marker of how far Indian Ultimate has come. For a brand, it means
+        something simpler: this story delivers on real stages — and it isn't finished. The World Ultimate
+        Club Championships are next.
+      </p>
+      <div class="fact-list gold-facts reveal d3">
+        <div class="fact-row"><span class="fact-key">tournament</span><span class="fact-val">TRIO Invitational 2026 · Putrajaya, Malaysia</span></div>
+        <div class="fact-row"><span class="fact-key">result</span><span class="fact-val">Gold · Mixed Division · 14-team international field</span></div>
+        <div class="fact-row"><span class="fact-key">club</span><span class="fact-val">Airbenders, Bengaluru · est. 2012</span></div>
+        <div class="fact-row"><span class="fact-key">press</span><span class="fact-val">Featured in The Hindu, July 2026</span></div>
+      </div>
+      <a href="https://www.thehindu.com/news/cities/bangalore/bengaluru-based-ultimate-frisbee-club-airbenders-bags-gold-at-international-tournament/article71192500.ece" target="_blank" rel="noopener" class="p-link reveal d3" style="display:inline-flex;align-items:center;gap:5px;margin-top:20px;font-size:11px;">
+        Read the story in The Hindu ↗
+      </a>
+    </div>
+
+    <div class="gold-imgs reveal d2">
+      <div>
+        <div class="gold-img-wrap"><img src="img/trio2026_gold_pooja.jpg" alt="Pooja Raghu with the TRIO Invitational 2026 mixed-division gold medal" loading="lazy"/></div>
+        <p class="gold-img-cap">The moment after the final</p>
+      </div>
+      <div>
+        <div class="gold-img-wrap"><img src="img/trio2026_medal.jpg" alt="TRIO 2026 Mixed Division Champion medal" loading="lazy"/></div>
+        <p class="gold-img-cap">Mixed Division Champion</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ PRESS ══ -->
 <section id="press" aria-label="Press coverage">
   <p class="s-label reveal">Press</p>
@@ -2809,7 +2865,7 @@
         <img src="img/logo_thehindu.svg" alt="The Hindu" class="press-feature-logo">
         <time class="press-feature-date">Jul 2026</time>
       </div>
-      <p class="press-feature-headline">Bengaluru-based Ultimate Frisbee club, Airbenders, bags gold at international tournament — my club's mixed-division win at the TRIO Invitational 2026 in Malaysia, en route to WUCC.</p>
+      <p class="press-feature-headline">Bengaluru-based Ultimate Frisbee club, Airbenders, bags gold at international tournament</p>
       <span class="press-feature-cta">Read the feature →</span>
     </div>
   </a>
@@ -2829,6 +2885,295 @@
     </div>
   </a>
 </section>
+
+<!-- ══ CAMPAIGNS ══ -->
+<section id="campaigns" aria-label="Campaign and editorial presence">
+  <div class="camps-head">
+    <p class="s-label reveal">Editorial &amp; Campaigns</p>
+    <h2 class="s-title split-lines reveal d1">The Face Behind<br/>The Campaigns.</h2>
+  </div>
+
+  <div class="camps-feed">
+    <div class="camp-row">
+      <div class="camp-img-w reveal">
+        <img src="img/image_meta2.jpeg" alt="Meta WhatsApp India Campaign" loading="lazy" />
+      </div>
+      <div class="camp-text reveal d1">
+        <span class="camp-num" aria-hidden="true">01</span>
+        <p class="camp-eyebrow">WhatsApp · Meta</p>
+        <h3 class="camp-title">London Campaign</h3>
+        <p class="p-body">Featured as a real user voice in WhatsApp's London campaign — one of Meta's largest international storytelling activations.</p>
+      </div>
+    </div>
+
+    <div class="camp-row">
+      <div class="camp-img-w reveal">
+        <img src="img/image65.png" alt="CSK Etihad Campaign" loading="lazy" />
+      </div>
+      <div class="camp-text reveal d1">
+        <span class="camp-num" aria-hidden="true">02</span>
+        <p class="camp-eyebrow">CSK × Etihad</p>
+        <h3 class="camp-title">IPL Season · Brand Activation</h3>
+        <p class="p-body">Featured during one of India's highest-viewership sporting events — a real athlete at the intersection of cricket and culture.</p>
+      </div>
+    </div>
+
+    <div class="camp-row">
+      <div class="camp-img-w reveal">
+        <img src="img/image68.jpeg" alt="Samsung Neeraj Chopra Campaign" loading="lazy" />
+      </div>
+      <div class="camp-text reveal d1">
+        <span class="camp-num" aria-hidden="true">03</span>
+        <p class="camp-eyebrow">Samsung</p>
+        <h3 class="camp-title">Neeraj Chopra · Sports Positioning</h3>
+        <p class="p-body">Sports positioning campaign for one of the world's biggest phone brands — sharing frames with India's Olympic gold medallist.</p>
+      </div>
+    </div>
+
+    <div class="camp-row">
+      <div class="camp-img-w reveal">
+        <img src="img/image55.jpeg" alt="Deepika 82E Wellness Campaign" loading="lazy" />
+      </div>
+      <div class="camp-text reveal d1">
+        <span class="camp-num" aria-hidden="true">04</span>
+        <p class="camp-eyebrow">Deepika</p>
+        <h3 class="camp-title">82°E · Wellness Editorial</h3>
+        <p class="p-body">Wellness editorial for Deepika Padukone's skincare brand, built on real skin, honest storytelling, and an athlete who actually lives the lifestyle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY · ONE PARTNER ══ -->
+<section id="why" aria-label="Why brands work with Pooja">
+  <p class="s-label reveal">One Partner · Many Disciplines</p>
+  <h2 class="s-title split-lines reveal d1">Why brands<br/>work with me.</h2>
+
+  <div class="why-layout">
+    <div>
+      <p class="p-body reveal d2" style="max-width:480px;">
+        Most athlete partnerships buy a face. This one comes with the team behind the face —
+        the strategist who shapes the campaign, the designer who cares how it looks, and the
+        athlete who gives it a story worth telling. One person, working across every format
+        a campaign needs.
+      </p>
+    </div>
+
+    <div class="fact-list reveal d2">
+      <div class="fact-row"><span class="fact-key">the athlete</span><span class="fact-val">Ten years of international competition. Gold at TRIO 2026. WUCC next.</span></div>
+      <div class="fact-row"><span class="fact-key">the marketer</span><span class="fact-val">Campaign strategy from someone who builds campaigns for a living — brief to delivery.</span></div>
+      <div class="fact-row"><span class="fact-key">the designer</span><span class="fact-val">Architect and UX designer by training. Composition and art direction come built in.</span></div>
+      <div class="fact-row"><span class="fact-key">the model</span><span class="fact-val">Commercial and editorial work across India's biggest campaigns, from Meta to Samsung.</span></div>
+      <div class="fact-row"><span class="fact-key">the speaker</span><span class="fact-val">Panels, workshops, and women-in-sport initiatives that put your brand in the room.</span></div>
+      <div class="fact-row"><span class="fact-key">the community</span><span class="fact-val">A decade inside India's fastest-growing team sport — and the trust that comes with it.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WUCC ══ -->
+<section id="wucc" aria-label="World Ultimate Club Championships 2026 — the flagship moment">
+  <div class="wucc-hero-row">
+    <div class="wucc-hero-left">
+      <p class="s-label reveal">The World Stage</p>
+      <h2 class="s-title split-lines reveal d1">Once In<br/>Four Years.<br/>India on the World Stage.</h2>
+      <p class="p-body reveal d2" style="margin-top:24px;">
+        We're heading to the World Ultimate Club Championships (WUCC) 2026 in Limerick, Ireland. <strong>Only the second Indian mixed club in history</strong>
+        to compete at this level. The tournament happens once every four years.
+      </p>
+      <a href="https://wucc.sport/" target="_blank" rel="noopener" class="p-link reveal d3" style="display:inline-flex;align-items:center;gap:5px;margin-top:18px;font-size:11px;">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        wucc.sport — Official tournament website ↗
+      </a>
+    </div>
+    <div class="wucc-hero-right reveal d2" aria-label="World Ultimate Club Championships 2026 official logo">
+      <img
+        class="wucc-badge-svg"
+        src="https://wucc.sport/wp-content/uploads/2025/07/Asset-2.png"
+        alt="World Ultimate Club Championships (WUCC) 2026 Limerick Ireland official logo"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <div class="wucc-layout reveal d2">
+    <div class="fact-list">
+      <div class="fact-row"><span class="fact-key">location</span><span class="fact-val">Limerick, Ireland 🇮🇪</span></div>
+      <div class="fact-row"><span class="fact-key">dates</span><span class="fact-val">August 15–22, 2026</span></div>
+      <div class="fact-row"><span class="fact-key">teams</span><span class="fact-val">90+ national club teams worldwide</span></div>
+      <div class="fact-row"><span class="fact-key">athletes</span><span class="fact-val">3,000+ from 30+ nations</span></div>
+      <div class="fact-row"><span class="fact-key">coverage</span><span class="fact-val">International livestream via WFDF</span></div>
+    </div>
+
+    <div class="countdown-wrap" aria-label="Countdown to World Ultimate Club Championships 2026">
+      <p class="cd-eyebrow">Days until World Ultimate Club Championships (WUCC) 2026 opens</p>
+      <div class="cd-row" role="timer" aria-live="off">
+        <div class="cd-unit"><div class="cd-num" id="cd-days">--</div><div class="cd-lbl">Days</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-hours">--</div><div class="cd-lbl">Hours</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-mins">--</div><div class="cd-lbl">Mins</div></div>
+        <div class="cd-unit"><div class="cd-num" id="cd-secs">--</div><div class="cd-lbl">Secs</div></div>
+      </div>
+      <p class="cd-event">15 August 2026 · Limerick, Ireland</p>
+    </div>
+  </div>
+
+  <!-- Collaboration formats — collapsed into WUCC section -->
+  <div id="partnership" style="margin-top: clamp(48px,6vw,80px);">
+    <p class="s-label collab-section-label reveal" style="margin-bottom:12px;">Ways to Work Together</p>
+  </div>
+  <div class="collab-grid reveal d2" style="margin-top:clamp(28px,3.5vw,40px);" aria-label="Collaboration formats">
+
+    <!-- 01 Content Partner -->
+    <div class="collab-card">
+      <p class="collab-tier-label">Digital · Social · Storytelling</p>
+      <div class="collab-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1.5" y="1.5" width="13" height="13" rx="3"/>
+          <circle cx="8" cy="8" r="2.8"/>
+          <circle cx="11.4" cy="4.6" r="0.7" fill="currentColor" stroke="none"/>
+        </svg>
+      </div>
+      <h3 class="collab-title">Story &amp; Social</h3>
+      <p class="collab-desc">Real posts, not ads. Your brand woven into training, travel, recovery, and the daily life of an international athlete.</p>
+      <ul class="collab-features">
+        <li>Social-first campaigns &amp; stories</li>
+        <li>Wellness journeys &amp; skincare routines for active life</li>
+        <li>Travel &amp; outdoor adventure content</li>
+        <li>Behind-the-scenes WUCC journey</li>
+      </ul>
+      <p class="collab-price">From ₹1,00,000/- · wellness · travel · lifestyle</p>
+      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20story-led%20social%20collaboration." class="collab-cta collab-cta-secondary" target="_blank" rel="noopener">Let's Talk</a>
+    </div>
+
+    <!-- 02 On-Field Partner -->
+    <div class="collab-card">
+      <p class="collab-tier-label">Field · Tournament · Global</p>
+      <div class="collab-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
+          <rect x="1" y="6" width="14" height="9" rx="1"/>
+          <rect x="3" y="2" width="10" height="7" rx="1"/>
+        </svg>
+      </div>
+      <h3 class="collab-title">Performance &amp; On-Field</h3>
+      <p class="collab-desc">Your brand competes alongside me at WUCC, on kit, on camera, and in every frame from Limerick.</p>
+      <ul class="collab-features">
+        <li>Kit presence at a world championship</li>
+        <li>Visible during international livestream</li>
+        <li>Performance campaigns &amp; tournament-day series</li>
+        <li>Nutrition, hydration &amp; recovery storytelling</li>
+      </ul>
+      <p class="collab-price">From ₹2,00,000/- · performance · footwear · apparel</p>
+      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20performance%20or%20on-field%20collaboration." class="collab-cta collab-cta-secondary" target="_blank" rel="noopener">Let's Talk</a>
+    </div>
+
+    <!-- 03 Campaign Partner — featured -->
+    <div class="collab-card collab-card-featured">
+      <p class="collab-tier-label">
+        <span class="collab-dot" aria-hidden="true"></span> Most Complete
+      </p>
+      <div class="collab-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+          <polygon points="8,1.5 10.1,6.1 15.2,6.6 11.6,10.1 12.7,15.2 8,12.5 3.3,15.2 4.4,10.1 0.8,6.6 5.9,6.1"/>
+        </svg>
+      </div>
+      <h3 class="collab-title">Integrated Campaign</h3>
+      <p class="collab-desc">The full story, from training camps in India to the tournament in Ireland, built as a proper brand campaign.</p>
+      <ul class="collab-features">
+        <li>Brand films &amp; commercial shoots</li>
+        <li>Editorial photography</li>
+        <li>Story arc across platforms, pre to post WUCC</li>
+        <li>International livestream visibility</li>
+        <li>Co-branded press release</li>
+        <li>Ambassador-style continuity beyond the event</li>
+      </ul>
+      <p class="collab-price">From ₹4,00,000/- · one story, one face, end to end</p>
+      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20an%20integrated%20campaign%20together." class="collab-cta collab-cta-primary" target="_blank" rel="noopener">Build This Together</a>
+    </div>
+
+    <!-- 04 Product & Lifestyle -->
+    <div class="collab-card">
+      <p class="collab-tier-label">In-Kind · Product · Lifestyle</p>
+      <div class="collab-icon" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="8" cy="8" r="6.5"/>
+        </svg>
+      </div>
+      <h3 class="collab-title">Product &amp; Lifestyle</h3>
+      <p class="collab-desc">If I'd genuinely use it, I'll wear it, train with it, and show it exactly as it fits into my life.</p>
+      <ul class="collab-features">
+        <li>Product testing in real-world environments</li>
+        <li>Honest, story-driven review content</li>
+        <li>Athlete endorsement in daily use</li>
+        <li>Sun protection, gear &amp; tech field-tested outdoors</li>
+      </ul>
+      <p class="collab-price">Product value · custom brief · gear, nutrition, suncare, tech</p>
+      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20product%20collaboration." class="collab-cta collab-cta-secondary" target="_blank" rel="noopener">Discuss</a>
+    </div>
+
+  </div>
+
+  <!-- Baseline: how every collaboration works -->
+  <div class="collab-baseline reveal d3">
+    <span class="collab-baseline-label">Every collaboration</span>
+    <div class="collab-baseline-items">
+      <span>Direct communication with Pooja</span>
+      <span class="collab-sep">·</span>
+      <span>Authentic storytelling, no scripts</span>
+      <span class="collab-sep">·</span>
+      <span>Full content rights post-campaign</span>
+      <span class="collab-sep">·</span>
+      <span>Case study, recap &amp; insights after every campaign</span>
+    </div>
+  </div>
+
+  <!-- Category fit: the spaces Pooja naturally plays in -->
+  <div class="collab-baseline reveal d3">
+    <span class="collab-baseline-label">Spaces I play in</span>
+    <div class="collab-baseline-items">
+      <span>Sports performance</span>
+      <span class="collab-sep">·</span>
+      <span>Energy &amp; hydration</span>
+      <span class="collab-sep">·</span>
+      <span>Nutrition &amp; recovery</span>
+      <span class="collab-sep">·</span>
+      <span>Skincare &amp; sun protection</span>
+      <span class="collab-sep">·</span>
+      <span>Outdoor &amp; adventure</span>
+      <span class="collab-sep">·</span>
+      <span>Travel &amp; tourism</span>
+      <span class="collab-sep">·</span>
+      <span>Fashion, footwear &amp; apparel</span>
+      <span class="collab-sep">·</span>
+      <span>Women's health</span>
+      <span class="collab-sep">·</span>
+      <span>Healthcare &amp; preventive care</span>
+      <span class="collab-sep">·</span>
+      <span>Technology &amp; creative tools</span>
+      <span class="collab-sep">·</span>
+      <span>Hospitality &amp; automotive</span>
+      <span class="collab-sep">·</span>
+      <span>Education</span>
+    </div>
+  </div>
+
+  <div class="pship-cta-wrap reveal d3">
+    <p class="pship-cta-note">Have a different format in mind — an ambassador program, a product launch, an event appearance, a corporate workshop, a brand film, a women-in-sport initiative? <a href="mailto:hello@poojaraghu.com?subject=Collaboration%20with%20Pooja%20Raghu" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;">Write to me ↗</a> and we'll build it around your brand's story. Sharing internally? <a href="/media-kit.pdf" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;">Download the media kit ↗</a></p>
+  </div>
+
+</section>
+
+<!-- ══ VOICES ══ -->
+<section id="voices" aria-label="Voices — what brands say">
+
+  <div class="voices-meta">
+    <p class="s-label reveal">Voices</p>
+    <h2 class="s-title split-lines reveal d1">What brands<br/>say.</h2>
+    <p class="voices-sub reveal d2">From brands who partnered and came back.</p>
+  </div>
+
+  <div class="voices-grid reveal d1" id="voices-grid"></div>
+
+</section>
+
 
 <!-- ══ ABOUT ══ -->
 <section id="about" aria-label="About Pooja Raghu">
@@ -2980,250 +3325,6 @@
   <img src="img/team_india.jpeg" alt="" loading="lazy" />
 </div>
 
-<!-- ══ CAMPAIGNS ══ -->
-<section id="campaigns" aria-label="Campaign and editorial presence">
-  <div class="camps-head">
-    <p class="s-label reveal">Editorial &amp; Campaigns</p>
-    <h2 class="s-title split-lines reveal d1">The Face Behind<br/>The Campaigns.</h2>
-  </div>
-
-  <div class="camps-feed">
-    <div class="camp-row">
-      <div class="camp-img-w reveal">
-        <img src="img/image_meta2.jpeg" alt="Meta WhatsApp India Campaign" loading="lazy" />
-      </div>
-      <div class="camp-text reveal d1">
-        <span class="camp-num" aria-hidden="true">01</span>
-        <p class="camp-eyebrow">WhatsApp · Meta</p>
-        <h3 class="camp-title">London Campaign</h3>
-        <p class="p-body">Featured as a real user voice in WhatsApp's London campaign — one of Meta's largest international storytelling activations.</p>
-      </div>
-    </div>
-
-    <div class="camp-row">
-      <div class="camp-img-w reveal">
-        <img src="img/image65.png" alt="CSK Etihad Campaign" loading="lazy" />
-      </div>
-      <div class="camp-text reveal d1">
-        <span class="camp-num" aria-hidden="true">02</span>
-        <p class="camp-eyebrow">CSK × Etihad</p>
-        <h3 class="camp-title">IPL Season · Brand Activation</h3>
-        <p class="p-body">Featured during one of India's highest-viewership sporting events, bringing authentic athlete presence to the intersection of cricket and culture.</p>
-      </div>
-    </div>
-
-    <div class="camp-row">
-      <div class="camp-img-w reveal">
-        <img src="img/image68.jpeg" alt="Samsung Neeraj Chopra Campaign" loading="lazy" />
-      </div>
-      <div class="camp-text reveal d1">
-        <span class="camp-num" aria-hidden="true">03</span>
-        <p class="camp-eyebrow">Samsung</p>
-        <h3 class="camp-title">Neeraj Chopra · Sports Positioning</h3>
-        <p class="p-body">Sports positioning campaign alongside India's Olympic gold medallist, creating authentic multi-athlete association for one of the world's biggest phone brands.</p>
-      </div>
-    </div>
-
-    <div class="camp-row">
-      <div class="camp-img-w reveal">
-        <img src="img/image55.jpeg" alt="Deepika 82E Wellness Campaign" loading="lazy" />
-      </div>
-      <div class="camp-text reveal d1">
-        <span class="camp-num" aria-hidden="true">04</span>
-        <p class="camp-eyebrow">Deepika</p>
-        <h3 class="camp-title">82°E · Wellness Editorial</h3>
-        <p class="p-body">Wellness editorial for Deepika Padukone's skincare brand, built on real skin, honest storytelling, and an athlete who actually lives the lifestyle.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ WUCC ══ -->
-<section id="wucc" aria-label="World Ultimate Club Championships 2026 — the flagship moment">
-  <div class="wucc-hero-row">
-    <div class="wucc-hero-left">
-      <p class="s-label reveal">The World Stage</p>
-      <h2 class="s-title split-lines reveal d1">Once In<br/>Four Years.<br/>India on the World Stage.</h2>
-      <p class="p-body reveal d2" style="margin-top:24px;">
-        We're heading to the World Ultimate Club Championships (WUCC) 2026 in Limerick, Ireland. <strong>Only the second Indian mixed club in history</strong>
-        to compete at this level. The tournament happens once every four years.
-      </p>
-      <a href="https://wucc.sport/" target="_blank" rel="noopener" class="p-link reveal d3" style="display:inline-flex;align-items:center;gap:5px;margin-top:18px;font-size:11px;">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        wucc.sport — Official tournament website ↗
-      </a>
-    </div>
-    <div class="wucc-hero-right reveal d2" aria-label="World Ultimate Club Championships 2026 official logo">
-      <img
-        class="wucc-badge-svg"
-        src="https://wucc.sport/wp-content/uploads/2025/07/Asset-2.png"
-        alt="World Ultimate Club Championships (WUCC) 2026 Limerick Ireland official logo"
-        loading="lazy"
-      />
-    </div>
-  </div>
-
-  <div class="wucc-layout reveal d2">
-    <div class="fact-list">
-      <div class="fact-row"><span class="fact-key">location</span><span class="fact-val">Limerick, Ireland 🇮🇪</span></div>
-      <div class="fact-row"><span class="fact-key">dates</span><span class="fact-val">August 15–22, 2026</span></div>
-      <div class="fact-row"><span class="fact-key">teams</span><span class="fact-val">90+ national club teams worldwide</span></div>
-      <div class="fact-row"><span class="fact-key">athletes</span><span class="fact-val">3,000+ from 30+ nations</span></div>
-      <div class="fact-row"><span class="fact-key">coverage</span><span class="fact-val">International livestream via WFDF</span></div>
-    </div>
-
-    <div class="countdown-wrap" aria-label="Countdown to World Ultimate Club Championships 2026">
-      <p class="cd-eyebrow">Days until World Ultimate Club Championships (WUCC) 2026 opens</p>
-      <div class="cd-row" role="timer" aria-live="off">
-        <div class="cd-unit"><div class="cd-num" id="cd-days">--</div><div class="cd-lbl">Days</div></div>
-        <div class="cd-unit"><div class="cd-num" id="cd-hours">--</div><div class="cd-lbl">Hours</div></div>
-        <div class="cd-unit"><div class="cd-num" id="cd-mins">--</div><div class="cd-lbl">Mins</div></div>
-        <div class="cd-unit"><div class="cd-num" id="cd-secs">--</div><div class="cd-lbl">Secs</div></div>
-      </div>
-      <p class="cd-event">15 August 2026 · Limerick, Ireland</p>
-    </div>
-  </div>
-
-  <!-- Collaboration formats — collapsed into WUCC section -->
-  <div id="partnership" style="margin-top: clamp(48px,6vw,80px);">
-    <p class="s-label collab-section-label reveal" style="margin-bottom:12px;">Ways to Work Together</p>
-  </div>
-  <div class="collab-grid reveal d2" style="margin-top:clamp(28px,3.5vw,40px);" aria-label="Collaboration formats">
-
-    <!-- 01 Content Partner -->
-    <div class="collab-card">
-      <p class="collab-tier-label">Digital · Social · Storytelling</p>
-      <div class="collab-icon" aria-hidden="true">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-          <rect x="1.5" y="1.5" width="13" height="13" rx="3"/>
-          <circle cx="8" cy="8" r="2.8"/>
-          <circle cx="11.4" cy="4.6" r="0.7" fill="currentColor" stroke="none"/>
-        </svg>
-      </div>
-      <h3 class="collab-title">Story &amp; Social</h3>
-      <p class="collab-desc">Real posts, not ads. Your brand woven into training, travel, recovery, and the daily life of an international athlete.</p>
-      <ul class="collab-features">
-        <li>Social-first campaigns &amp; stories</li>
-        <li>Wellness journeys &amp; skincare routines for active life</li>
-        <li>Travel &amp; outdoor adventure content</li>
-        <li>Behind-the-scenes WUCC journey</li>
-      </ul>
-      <p class="collab-price">Fits: wellness · skincare · travel · lifestyle</p>
-      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20story-led%20social%20collaboration." class="collab-cta collab-cta-secondary" target="_blank" rel="noopener">Let's Talk</a>
-    </div>
-
-    <!-- 02 On-Field Partner -->
-    <div class="collab-card">
-      <p class="collab-tier-label">Field · Tournament · Global</p>
-      <div class="collab-icon" aria-hidden="true">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round">
-          <rect x="1" y="6" width="14" height="9" rx="1"/>
-          <rect x="3" y="2" width="10" height="7" rx="1"/>
-        </svg>
-      </div>
-      <h3 class="collab-title">Performance &amp; On-Field</h3>
-      <p class="collab-desc">Your brand competes alongside me at WUCC, on kit, on camera, and in every frame from Limerick.</p>
-      <ul class="collab-features">
-        <li>Kit presence at a world championship</li>
-        <li>Visible during international livestream</li>
-        <li>Performance campaigns &amp; tournament-day series</li>
-        <li>Nutrition, hydration &amp; recovery storytelling</li>
-      </ul>
-      <p class="collab-price">Fits: performance · hydration · footwear · apparel</p>
-      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20performance%20or%20on-field%20collaboration." class="collab-cta collab-cta-secondary" target="_blank" rel="noopener">Let's Talk</a>
-    </div>
-
-    <!-- 03 Campaign Partner — featured -->
-    <div class="collab-card collab-card-featured">
-      <p class="collab-tier-label">
-        <span class="collab-dot" aria-hidden="true"></span> Most Complete
-      </p>
-      <div class="collab-icon" aria-hidden="true">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
-          <polygon points="8,1.5 10.1,6.1 15.2,6.6 11.6,10.1 12.7,15.2 8,12.5 3.3,15.2 4.4,10.1 0.8,6.6 5.9,6.1"/>
-        </svg>
-      </div>
-      <h3 class="collab-title">Integrated Campaign</h3>
-      <p class="collab-desc">The full story, from training camps in India to the tournament in Ireland, built as a proper brand campaign.</p>
-      <ul class="collab-features">
-        <li>Brand films &amp; commercial shoots</li>
-        <li>Editorial photography</li>
-        <li>Story arc across platforms, pre to post WUCC</li>
-        <li>International livestream visibility</li>
-        <li>Co-branded press release</li>
-        <li>Ambassador-style continuity beyond the event</li>
-      </ul>
-      <p class="collab-price">Fits: campaigns built around one story, one face</p>
-      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20an%20integrated%20campaign%20together." class="collab-cta collab-cta-primary" target="_blank" rel="noopener">Build This Together</a>
-    </div>
-
-    <!-- 04 Product & Lifestyle -->
-    <div class="collab-card">
-      <p class="collab-tier-label">In-Kind · Product · Lifestyle</p>
-      <div class="collab-icon" aria-hidden="true">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="8" cy="8" r="6.5"/>
-        </svg>
-      </div>
-      <h3 class="collab-title">Product &amp; Lifestyle</h3>
-      <p class="collab-desc">If I'd genuinely use it, I'll wear it, train with it, and show it exactly as it fits into my life.</p>
-      <ul class="collab-features">
-        <li>Product testing in real-world environments</li>
-        <li>Honest, story-driven review content</li>
-        <li>Athlete endorsement in daily use</li>
-        <li>Sun protection, gear &amp; tech field-tested outdoors</li>
-      </ul>
-      <p class="collab-price">Fits: gear · nutrition · suncare · technology</p>
-      <a href="https://wa.me/919886747996?text=Hi%20Pooja!%20I%27d%20love%20to%20explore%20a%20product%20collaboration." class="collab-cta collab-cta-secondary" target="_blank" rel="noopener">Discuss</a>
-    </div>
-
-  </div>
-
-  <!-- Baseline: how every collaboration works -->
-  <div class="collab-baseline reveal d3">
-    <span class="collab-baseline-label">Every collaboration</span>
-    <div class="collab-baseline-items">
-      <span>Direct communication with Pooja</span>
-      <span class="collab-sep">·</span>
-      <span>Authentic storytelling, no scripts</span>
-      <span class="collab-sep">·</span>
-      <span>Full content rights post-campaign</span>
-      <span class="collab-sep">·</span>
-      <span>Post-campaign report &amp; insights</span>
-    </div>
-  </div>
-
-  <!-- Category fit: the spaces Pooja naturally plays in -->
-  <div class="collab-baseline reveal d3">
-    <span class="collab-baseline-label">Spaces I play in</span>
-    <div class="collab-baseline-items">
-      <span>Sports performance</span>
-      <span class="collab-sep">·</span>
-      <span>Energy &amp; hydration</span>
-      <span class="collab-sep">·</span>
-      <span>Nutrition &amp; recovery</span>
-      <span class="collab-sep">·</span>
-      <span>Skincare &amp; sun protection</span>
-      <span class="collab-sep">·</span>
-      <span>Outdoor &amp; adventure</span>
-      <span class="collab-sep">·</span>
-      <span>Travel &amp; tourism</span>
-      <span class="collab-sep">·</span>
-      <span>Fashion, footwear &amp; apparel</span>
-      <span class="collab-sep">·</span>
-      <span>Women's health</span>
-      <span class="collab-sep">·</span>
-      <span>Healthcare &amp; preventive care</span>
-      <span class="collab-sep">·</span>
-      <span>Technology &amp; creative tools</span>
-    </div>
-  </div>
-
-  <div class="pship-cta-wrap reveal d3">
-    <p class="pship-cta-note">Have a different format in mind — a brand film, a speaking engagement, an ambassador program, a women-in-sport initiative? <a href="mailto:hello@poojaraghu.com?subject=Collaboration%20with%20Pooja%20Raghu" style="color:rgba(255,255,255,0.55);text-decoration:underline;text-underline-offset:3px;">Write to me ↗</a> and we'll build it around your brand's story.</p>
-  </div>
-
-</section>
 
 <!-- ══ LIFE IN MOTION ══ -->
 <section id="beyond" aria-label="A life in motion — athlete gallery">
@@ -3241,41 +3342,24 @@
       <div class="gallery-scroll-item"><img src="img/image33.jpeg"         alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image76.jpeg"    alt="Surfing lifestyle" loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image20.jpeg"         alt="Sport"            loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image37.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image14.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image42.jpeg"         alt="Surfing"          loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image35.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image21.jpeg"         alt="Modeling"         loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image_snow.jpeg"      alt="Sport action" loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image33.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image31.jpeg"         alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/photo_bw.jpeg"        alt="Portrait"         loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/trio2026_medal.jpg"   alt="TRIO 2026 Mixed Division Champion medal" loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image97.jpeg"         alt="Ultimate Frisbee" loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image31.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image85.jpeg"         alt="Athletic editorial" loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image99.jpeg"         alt="World Ultimate Club Championships 2026"        loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image1.jpeg"     alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image71.jpeg"         alt="Sport"            loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image45.jpeg"    alt="Campaign"         loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/image66.jpeg"         alt="Modeling"         loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image47.jpeg"         alt="Sport action"   loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/image98.jpeg"         alt="Surfing"          loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image32.jpeg"    alt="Editorial"        loading="lazy"/></div>
 
       <div class="gallery-scroll-item"><img src="img/image69.jpeg"         alt="Modeling"         loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image36.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image44.jpeg"    alt="Campaign"         loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image10.jpeg"    alt="Editorial"        loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image22.jpeg"    alt="Editorial"        loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image21.jpeg"    alt="Editorial"        loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image11.jpeg"    alt="Editorial"        loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image100.jpeg"   alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/image67.jpeg"         alt="Modeling"         loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image6.jpeg"     alt="Editorial"        loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image23.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image43.jpeg"    alt="Campaign"         loading="lazy"/></div>
-      <div class="gallery-scroll-item"><img src="img/pptx_image41.jpeg"    alt="Editorial"        loading="lazy"/></div>
       <div class="gallery-scroll-item"><img src="img/pptx_image15.jpeg"    alt="Editorial"        loading="lazy"/></div>
     </div>
   </div>
@@ -3290,19 +3374,6 @@
       <span class="gallery-disc-tag">Editorial</span>
     </div>
   </div>
-
-</section>
-
-<!-- ══ VOICES ══ -->
-<section id="voices" aria-label="Voices — what brands say">
-
-  <div class="voices-meta">
-    <p class="s-label reveal">Voices</p>
-    <h2 class="s-title split-lines reveal d1">What brands<br/>say.</h2>
-    <p class="voices-sub reveal d2">From brands who partnered and came back.</p>
-  </div>
-
-  <div class="voices-grid reveal d1" id="voices-grid"></div>
 
 </section>
 
@@ -3416,6 +3487,23 @@
               </svg>
             </span>
             +91 98867 47996
+          </span>
+          <span class="flink-arrow">↗</span>
+        </a>
+      </li>
+
+      <li class="flink-secondary">
+        <a href="/media-kit.pdf" target="_blank" rel="noopener">
+          <span class="flink-inner">
+            <span class="flink-icon" aria-hidden="true">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <polyline points="9 15 12 18 15 15"/>
+              </svg>
+            </span>
+            Media Kit
           </span>
           <span class="flink-arrow">↗</span>
         </a>
