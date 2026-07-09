@@ -19,9 +19,9 @@ const BG    = '#0B0B0C';
 const ACC   = '#C4F648';
 
 const doc = new PDFDocument({ size: 'A4', margins: { top: 0, bottom: 0, left: 0, right: 0 }, info: {
-  Title: 'Pooja Raghu — Media Kit 2026',
+  Title: 'Pooja Raghu: Media Kit 2026',
   Author: 'Pooja Raghu',
-  Subject: 'Athlete · Creator · Strategist — partnership media kit',
+  Subject: 'Athlete · Creator · Strategist, partnership media kit',
 }});
 doc.pipe(fs.createWriteStream(OUT));
 
@@ -61,13 +61,13 @@ label('Athlete · Creator · Strategist', M, M + 142, ACC);
 // intro
 const introY = M + 170;
 doc.font('Helvetica').fontSize(10.5).fillColor(BODY).text(
-  'International multi-sport athlete from Bengaluru, India — fresh from mixed-division gold at the ' +
+  'International multi-sport athlete from Bengaluru, India, fresh from mixed-division gold at the ' +
   'TRIO Invitational 2026 in Malaysia, and headed to the World Ultimate Club Championships in Limerick, ' +
   'Ireland, with only the second Indian mixed club in history to qualify.',
   M, introY, { width: 300, lineGap: 3.5 });
 doc.font('Helvetica').fontSize(10.5).fillColor(BODY).text(
   'Also an architect, UX designer, marketing strategist, and commercial model. One partner for ' +
-  'performance campaigns, brand films, editorial shoots, product stories, and the stage — with the ' +
+  'performance campaigns, brand films, editorial shoots, product stories, and the stage, with the ' +
   'strategy built in.',
   M, introY + 92, { width: 300, lineGap: 3.5 });
 
@@ -82,12 +82,12 @@ label('TRIO Invitational 2026 · Gold', imgX, imgY + imgH + 10, DIM);
 let fy = 400;
 label('The Short Version', M, fy, ACC);
 fy += 22;
-fy = factRow('result', 'Gold, Mixed Division — TRIO Invitational 2026, Putrajaya, Malaysia (14-team international field)', M, fy, W);
-fy = factRow('next', 'World Ultimate Club Championships 2026 — Limerick, Ireland · August 15–22', M, fy, W);
+fy = factRow('result', 'Gold, Mixed Division, TRIO Invitational 2026, Putrajaya, Malaysia (14-team international field)', M, fy, W);
+fy = factRow('next', 'World Ultimate Club Championships 2026, Limerick, Ireland · August 15–22', M, fy, W);
 fy = factRow('career', '10+ years competing internationally · 9+ championships across 4 continents', M, fy, W);
 fy = factRow('disciplines', 'Ultimate Frisbee · Surfing · Snowboarding · Rugby · Trekking · Modelling', M, fy, W);
 fy = factRow('profession', 'Architect · UX/UI Designer · Marketing Strategist · Public Speaker', M, fy, W);
-fy = factRow('audience', '9K+ Instagram · 3K+ LinkedIn · 100K+ reel views — engaged, not bought', M, fy, W);
+fy = factRow('audience', '9K+ Instagram · 3K+ LinkedIn · 100K+ reel views (engaged, not bought)', M, fy, W);
 
 // press
 fy += 14;
@@ -141,7 +141,7 @@ y2 += 22;
 const fmt = [
   ['Story & Social',        'Social-first campaigns woven into training, travel, recovery, and daily life. Wellness journeys, skincare routines for active life, outdoor adventure content.'],
   ['Performance & On-Field','Kit presence at a world championship, international livestream visibility, nutrition and recovery storytelling from real competition.'],
-  ['Integrated Campaign',   'Brand films, commercial shoots, and editorial photography built as one story arc — from training camps in India to the tournament in Ireland.'],
+  ['Integrated Campaign',   'Brand films, commercial shoots, and editorial photography built as one story arc, from training camps in India to the tournament in Ireland.'],
   ['Product & Lifestyle',   'Product testing in real-world environments. Honest, story-driven review content. Gear, nutrition, suncare, and tech, field-tested outdoors.'],
 ];
 for (const [k, v] of fmt) {
