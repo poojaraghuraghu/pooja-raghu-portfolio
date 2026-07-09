@@ -84,7 +84,7 @@ label('The Short Version', M, fy, ACC);
 fy += 22;
 fy = factRow('result', 'Gold, Mixed Division — TRIO Invitational 2026, Putrajaya, Malaysia (14-team international field)', M, fy, W);
 fy = factRow('next', 'World Ultimate Club Championships 2026 — Limerick, Ireland · August 15–22', M, fy, W);
-fy = factRow('career', '10+ years competing internationally · 8+ championships across 4 continents', M, fy, W);
+fy = factRow('career', '10+ years competing internationally · 9+ championships across 4 continents', M, fy, W);
 fy = factRow('disciplines', 'Ultimate Frisbee · Surfing · Snowboarding · Rugby · Trekking · Modelling', M, fy, W);
 fy = factRow('profession', 'Architect · UX/UI Designer · Marketing Strategist · Public Speaker', M, fy, W);
 fy = factRow('audience', '9K+ Instagram · 3K+ LinkedIn · 100K+ reel views — engaged, not bought', M, fy, W);
@@ -100,7 +100,7 @@ const sy = A4[1] - M - 112;
 rule(M, sy - 18, W);
 const stats = [
   ['10+', 'years competing\ninternationally'],
-  ['8+',  'international\nchampionships'],
+  ['9+',  'international\nchampionships'],
   ['4',   'continents.\none career.'],
   ['1',   'gold medal.\nmore to come.'],
 ];
