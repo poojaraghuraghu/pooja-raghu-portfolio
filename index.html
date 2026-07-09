@@ -167,6 +167,14 @@ a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 .d4 { transition-delay: .40s; }
 @media (prefers-reduced-motion: reduce) {
       .reveal, .line-inner { opacity:1; transform:none; transition:none; }
+      .hero-micro-label, .hl-line, .hero-support, .hero-ctas, .hero-name-id, .hero-brand-line {
+        opacity:1 !important; transform:none !important; animation:none !important;
+      }
+      .ticker-track, .logo-strip-track, .frisbee-svg, .tl-spine::after, .ticker-live, .collab-dot {
+        animation: none !important;
+      }
+      #frisbee-cursor { display: none !important; }
+      *, *::before, *::after { cursor: auto !important; }
     }
 /* ── SPLIT-LINE REVEAL ─────────────────────────────────── */
 .split-lines .line-wrap {
@@ -1697,10 +1705,10 @@ body { background: var(--ink); color: rgba(255,255,255,0.72); }
       to   { opacity:1; transform: none; }
     }
 .smodal-close {
-      position: absolute; top: 14px; right: 16px;
+      position: absolute; top: 8px; right: 10px;
       background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
       color: rgba(255,255,255,0.4); font-size: 16px; cursor: pointer;
-      width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
       transition: background .18s, color .18s; line-height: 1;
     }
 .smodal-close:hover { background: rgba(255,255,255,0.10); color: white; }
@@ -1732,7 +1740,7 @@ body { background: var(--ink); color: rgba(255,255,255,0.72); }
 .smodal-copy-btn {
       background: none; border: 1px solid rgba(196,246,72,0.25); border-radius: 6px;
       color: rgba(196,246,72,0.6); font-size: 10px; font-family: var(--f-mono);
-      cursor: pointer; padding: 3px 8px; transition: all .18s; letter-spacing: .04em;
+      cursor: pointer; padding: 9px 12px; min-height: 32px; transition: all .18s; letter-spacing: .04em;
     }
 .smodal-copy-btn:hover { border-color: var(--hero-accent); color: var(--hero-accent); }
 .smodal-copy-btn.copied { color: white; border-color: rgba(255,255,255,0.3); }
@@ -2749,7 +2757,7 @@ body { background: var(--ink); color: rgba(255,255,255,0.72); }
 
   <!-- Silhouette -->
   <div class="footer-silhouette" aria-hidden="true">
-    <img src="img/image_silhouette.jpeg" alt="" />
+    <img src="img/image_silhouette.jpeg" alt="" loading="lazy" />
   </div>
 
   <!-- Content -->
