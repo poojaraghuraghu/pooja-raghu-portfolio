@@ -676,6 +676,46 @@
       .press-seen-in { margin-bottom: clamp(24px,3vw,36px); }
     }
 
+    /* ── PRESS LIST (compact) ──────────────────────────────── */
+    .press-list { max-width: 760px; }
+    .press-row {
+      display: flex; align-items: center; gap: clamp(16px,2.5vw,32px);
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      text-decoration: none;
+      transition: border-color 0.25s;
+    }
+    .press-row:first-child { padding-top: 0; }
+    .press-row:hover { border-color: rgba(255,255,255,0.18); }
+    .press-row-logo {
+      height: 16px; width: 78px; flex-shrink: 0;
+      object-fit: contain; object-position: left center;
+      filter: brightness(0) invert(1); opacity: 0.5;
+      transition: opacity 0.25s;
+    }
+    .press-row:hover .press-row-logo { opacity: 0.85; }
+    .press-row-headline {
+      flex: 1; min-width: 0;
+      font-family: var(--f-body); font-size: clamp(13px,1.1vw,15px); font-weight: 300;
+      color: rgba(255,255,255,0.62);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: color 0.25s;
+    }
+    .press-row:hover .press-row-headline { color: rgba(255,255,255,0.88); }
+    .press-row-date {
+      font-family: var(--f-mono); font-style: italic; font-size: 10px;
+      letter-spacing: 0.06em; color: rgba(255,255,255,0.22); flex-shrink: 0;
+    }
+    .press-row-arrow {
+      font-size: 13px; color: var(--hero-accent); flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    .press-row:hover .press-row-arrow { transform: translateX(3px); }
+    @media (max-width: 560px) {
+      .press-row-date { display: none; }
+      .press-row-logo { width: 58px; }
+    }
+
     /* ── TYPOGRAPHY SYSTEM ─────────────────────────────────── */
     section { padding: clamp(72px, 10vw, 130px) clamp(24px, 4.5vw, 72px); }
     .s-label {
@@ -2855,35 +2895,21 @@
     </div>
   </div>
 
-  <!-- Feature article — The Hindu · TRIO 2026 gold -->
-  <a href="https://www.thehindu.com/news/cities/bangalore/bengaluru-based-ultimate-frisbee-club-airbenders-bags-gold-at-international-tournament/article71192500.ece" target="_blank" rel="noopener" class="press-feature-card reveal d2">
-    <div class="press-feature-img-wrap">
-      <img src="img/trio2026_gold_pooja.jpg" alt="Pooja Raghu biting the TRIO Invitational 2026 mixed-division gold medal, Putrajaya" class="press-feature-img" loading="lazy">
-    </div>
-    <div class="press-feature-body">
-      <div class="press-feature-pub">
-        <img src="img/logo_thehindu.svg" alt="The Hindu" class="press-feature-logo">
-        <time class="press-feature-date">Jul 2026</time>
-      </div>
-      <p class="press-feature-headline">Bengaluru-based Ultimate Frisbee club, Airbenders, bags gold at international tournament</p>
-      <span class="press-feature-cta">Read the feature →</span>
-    </div>
-  </a>
-
-  <!-- Feature article -->
-  <a href="https://www.indulgexpress.com/life-style/beautyandwellness/2024/Oct/09/frisbee-star-pooja-raghu-teams-up-with-youneek-pro-science-breaking-barriers-and-boosting-beauty-for-the-world-ultimate-championships" target="_blank" rel="noopener" class="press-feature-card reveal d2" style="margin-top:clamp(20px,2.5vw,32px);">
-    <div class="press-feature-img-wrap">
-      <img src="img/pptx_image4.jpeg" alt="Pooja Raghu — Indulge Xpress feature" class="press-feature-img" loading="lazy">
-    </div>
-    <div class="press-feature-body">
-      <div class="press-feature-pub">
-        <img src="img/logo_indulge.svg" alt="Indulge Xpress" class="press-feature-logo">
-        <time class="press-feature-date">Oct 2024</time>
-      </div>
-      <p class="press-feature-headline">Frisbee Star Pooja Raghu Teams Up with Youneek Pro Science — Breaking Barriers and Boosting Beauty for the World Ultimate Championships</p>
-      <span class="press-feature-cta">Read the feature →</span>
-    </div>
-  </a>
+  <!-- Compact press list — full TRIO 2026 story already told in the Gold section above -->
+  <div class="press-list reveal d2">
+    <a href="https://www.thehindu.com/news/cities/bangalore/bengaluru-based-ultimate-frisbee-club-airbenders-bags-gold-at-international-tournament/article71192500.ece" target="_blank" rel="noopener" class="press-row">
+      <img src="img/logo_thehindu.svg" alt="The Hindu" class="press-row-logo">
+      <span class="press-row-headline">Bengaluru-based Ultimate Frisbee club, Airbenders, bags gold at international tournament</span>
+      <time class="press-row-date">Jul 2026</time>
+      <span class="press-row-arrow">→</span>
+    </a>
+    <a href="https://www.indulgexpress.com/life-style/beautyandwellness/2024/Oct/09/frisbee-star-pooja-raghu-teams-up-with-youneek-pro-science-breaking-barriers-and-boosting-beauty-for-the-world-ultimate-championships" target="_blank" rel="noopener" class="press-row">
+      <img src="img/logo_indulge.svg" alt="Indulge Xpress" class="press-row-logo">
+      <span class="press-row-headline">Frisbee Star Pooja Raghu Teams Up with Youneek Pro Science</span>
+      <time class="press-row-date">Oct 2024</time>
+      <span class="press-row-arrow">→</span>
+    </a>
+  </div>
 </section>
 
 <!-- ══ CAMPAIGNS ══ -->
