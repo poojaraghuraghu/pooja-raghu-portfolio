@@ -112,6 +112,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=DM+Mono:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet" />
 
+  <!-- Preload hero background — LCP element -->
+  <link rel="preload" as="image" href="img/image39.jpeg" fetchpriority="high" />
+
   <style>
     /* ────────────────────────────────────────────────────────
        DESIGN TOKENS
@@ -146,6 +149,14 @@
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
+
+    /* ── FOCUS STATES (keyboard nav) ───────────────────────── */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--hero-accent);
+      outline-offset: 3px;
+      border-radius: 1px;
+    }
+    a:focus:not(:focus-visible), button:focus:not(:focus-visible) { outline: none; }
 
     /* ── REVEAL ────────────────────────────────────────────── */
     .reveal {
@@ -1169,87 +1180,6 @@
     .cd-num.flipping { animation: cd-flip 0.32s ease-in-out; }
     @media (max-width: 768px) { .wucc-layout { grid-template-columns: 1fr; } }
 
-    .why-partner-sub {
-      margin-top: clamp(60px,8vw,96px); padding-top: clamp(44px,5.5vw,64px);
-      border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .why-sub-label {
-      font-family: var(--f-mono); font-style: italic; font-size: 11px;
-      color: var(--hero-accent); letter-spacing: .09em; text-transform: uppercase; margin-bottom: 24px;
-    }
-    .why-sub-title {
-      font-family: var(--f-sans); font-size: clamp(30px,4vw,56px);
-      font-weight: 700; line-height: 0.96; letter-spacing: -.04em; color: white;
-      margin-bottom: clamp(40px,5vw,64px);
-    }
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    @media (max-width: 860px) { .why-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 480px) { .why-grid { grid-template-columns: 1fr; } }
-    .why-col {
-      padding: 24px 20px 22px;
-      border: 1px solid rgba(196,246,72,0.13);
-      border-radius: 10px;
-      background: rgba(196,246,72,0.025);
-      display: flex; flex-direction: column;
-      aspect-ratio: 1 / 1.08;
-      transition: border-color 0.25s, background 0.25s;
-    }
-    .why-col:hover {
-      border-color: rgba(196,246,72,0.30);
-      background: rgba(196,246,72,0.05);
-    }
-    .why-num {
-      font-family: var(--f-mono); font-style: italic; font-size: 10px;
-      color: rgba(196,246,72,0.35); margin-bottom: auto; letter-spacing: .08em;
-    }
-    .why-title {
-      font-family: var(--f-sans); font-size: clamp(13px,1.2vw,15px);
-      font-weight: 600; color: white; letter-spacing: -.01em;
-      margin-bottom: 8px; margin-top: 24px; line-height: 1.2;
-    }
-    .why-body {
-      font-family: var(--f-body); font-size: 12px; font-weight: 300;
-      line-height: 1.65; color: rgba(255,255,255,0.38);
-    }
-    .why-metrics {
-      display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px;
-    }
-    .why-metric-tag {
-      font-family: var(--f-mono); font-size: 9.5px; letter-spacing: .05em;
-      text-transform: uppercase; color: var(--hero-accent);
-      border: 1px solid rgba(196,246,72,0.28); border-radius: 4px;
-      padding: 3px 7px; background: rgba(196,246,72,0.07);
-      white-space: nowrap;
-    }
-    .why-accent { color: var(--hero-accent); }
-    .federation-strip {
-      display: flex; align-items: flex-start; flex-wrap: wrap;
-      gap: clamp(14px,2.5vw,28px); margin-top: clamp(44px,5.5vw,64px);
-      padding-top: clamp(22px,2.5vw,32px); border-top: 1px solid rgba(255,255,255,0.07);
-    }
-    .fed-label {
-      font-family: var(--f-mono); font-style: italic; font-size: 10px;
-      color: var(--hero-accent); letter-spacing: 0.10em; text-transform: uppercase;
-      flex-shrink: 0; padding-top: 2px;
-    }
-    .fed-items { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
-    .fed-item { font-family: var(--f-body); font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.38); }
-    .fed-sep { color: rgba(255,255,255,0.13); }
-
-    /* ── SOCIAL PROOF ──────────────────────────────────────── */
-    #social-proof { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.07); padding: 0; }
-    .sp-logos-wrap {
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      background: rgba(255,255,255,0.015); padding: clamp(10px,1.5vw,16px) 0;
-    }
-    .sp-test-wrap {
-      padding: clamp(64px,9vw,112px) clamp(24px,4.5vw,72px) clamp(80px,11vw,132px);
-    }
-
     /* ── VOICE TESTIMONIAL GRID ──────────────────────────────── */
     .voices-grid {
       margin-top: clamp(40px,5vw,56px);
@@ -1325,28 +1255,6 @@
       background: rgba(196,246,72,0.025);
     }
     #wucc .pship-cta-wrap { margin-top: clamp(20px,3vw,32px); }
-    .pship-list { margin-top: clamp(40px,5vw,64px); border-top: 1px solid rgba(255,255,255,0.07); }
-    .pship-row {
-      display: grid; grid-template-columns: 44px 1fr 1fr;
-      gap: clamp(16px,3vw,44px);
-      padding: clamp(24px,3.5vw,44px) 0;
-      border-bottom: 1px solid rgba(255,255,255,0.07); align-items: start;
-    }
-    .pship-num {
-      font-family: var(--f-mono); font-style: italic;
-      font-size: 12px; color: rgba(255,255,255,0.15); padding-top: 4px;
-    }
-    .pship-title {
-      font-family: var(--f-sans); font-size: clamp(18px,2.2vw,26px);
-      font-weight: 600; color: white; line-height: 1.18; letter-spacing: -.015em;
-    }
-    .pship-tag-pill {
-      display: inline-block; margin-top: 10px;
-      font-family: var(--f-mono); font-style: italic;
-      font-size: 10px; color: var(--hero-accent);
-    }
-    @media (max-width: 880px) { .pship-row { grid-template-columns: 36px 1fr; } .pship-body { grid-column: 2; } }
-    @media (max-width: 560px) { .pship-row { grid-template-columns: 1fr; gap: 10px; } }
     .pship-cta-wrap {
       display: flex; flex-direction: column; align-items: flex-start; gap: 18px;
       margin-top: clamp(52px,7vw,80px); padding-top: 0;
@@ -1599,27 +1507,6 @@
 
     @media (max-width: 480px) {
       section { padding: clamp(52px,9vw,130px) clamp(16px,4.5vw,72px); }
-    }
-
-    /* ── ABOUT FIRST-PERSON QUOTE ─────────────────────────── */
-    .about-quote {
-      font-family: var(--f-body);
-      font-size: clamp(14px,1.4vw,17px);
-      font-weight: 300; font-style: italic;
-      line-height: 1.72; color: rgba(255,255,255,0.52);
-      border-left: 2px solid var(--hero-accent);
-      padding-left: 18px;
-      margin-top: 28px; max-width: 50ch;
-    }
-
-    /* ── PARTNERSHIP FLAGSHIP BADGE ───────────────────────── */
-    .pship-flagship {
-      display: inline-block;
-      font-family: var(--f-mono); font-size: 9px;
-      font-style: normal; letter-spacing: .13em;
-      text-transform: uppercase;
-      color: var(--ink); background: var(--hero-accent);
-      padding: 3px 9px; margin-bottom: 10px;
     }
 
     /* ── JOURNEY / TIMELINE ─────────────────────────────────── */
@@ -3340,7 +3227,7 @@
     </div>
     <div class="journey-stat reveal d3">
       <span class="jstat-value">1</span>
-      <span class="jstat-label">Gold medal. More to come.</span>
+      <span class="jstat-label">Gold medal after 10+ years. More to come.</span>
     </div>
   </div>
 
