@@ -102,7 +102,7 @@ const stats = [
   ['10+', 'years competing\ninternationally'],
   ['9+',  'international\nchampionships'],
   ['4',   'continents.\none career.'],
-  ['1',   'gold medal after\n10+ years. more\nto come.'],
+  ['10+', 'gold medals.\nmore to come.'],
 ];
 const colW = W / 4;
 stats.forEach(([num, lab], i) => {
